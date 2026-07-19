@@ -8,12 +8,11 @@ class Journal:
     def add_trade(self, trade):
         """"Adds trade to the journal"""
         self.trades.append(trade)
-        return self.trades
-
+        
     def display_trades(self):
         """Displays trades"""
         for trade in self.trades:
-            pass
+            print(trade)
 
     def trade_count(self):
         """"Count trades"""
@@ -26,11 +25,3 @@ class Journal:
     def del_trade(self):
         """deletes trades"""
         pass
-
-    
-
-
-
-journal = Journal()
-
-journal.add_trade(trade) # trade doesn't exists yet
