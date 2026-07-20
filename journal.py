@@ -1,4 +1,6 @@
 from trade import Trade
+from pathlib import Path
+import json
 
 class Journal:
 
@@ -16,7 +18,7 @@ class Journal:
 
     def trade_count(self):
         """"Count trades"""
-        return f"There is {len(self.trades)} trades in your journal"
+        return f"There are {len(self.trades)} trades in your journal"
 
     def id_find(self):
         """Find trades by id"""
@@ -24,4 +26,11 @@ class Journal:
 
     def del_trade(self):
         """deletes trades"""
+        pass
+    
+    def save_to_json(self):
+        path = Path("trades.json")
+        pass
+
+    def load_from_json(self):
         pass

@@ -69,17 +69,17 @@ from journal import Journal
 
 journal = Journal()
 
-#while True:
-trade = create_trade()
-journal.add_trade(trade)
-#if
+while True:
+        trade = create_trade()
+        journal.add_trade(trade)
+        if input("Do you want to add another trade? Y / N: ").upper() != "Y":
+              break
 
+#journal.save_to_json()
 
 
 
 # TODO
-
-# Allow adding multiple trades (while loop) in main.py
 
 # Save trades to journal.json (Journal.save_to_json())
 
