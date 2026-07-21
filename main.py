@@ -69,6 +69,8 @@ from journal import Journal
 
 journal = Journal()
 
+date = datetime.now()
+
 while True:
         trade = create_trade()
         journal.add_trade(trade)
@@ -81,9 +83,7 @@ while True:
 
 # TODO
 
-# Save trades to journal.json (Journal.save_to_json())
-
-# Load trades from journal.json on startup (Journal.load_from_json())
+# Make json loads and dumps work (to_dict)
 
 # Main.py:
 # journal.load_from_json()

@@ -30,7 +30,13 @@ class Journal:
     
     def save_to_json(self):
         path = Path("trades.json")
-        pass
+        for trade in self.trades:
+            pass
+        contents = json.dumps(self.trades)
+        path.write_text(contents)
 
     def load_from_json(self):
-        pass
+        path = Path("trades.json")
+        contents = path.read_text()
+        contents = json.loads(contents)
+        self.trades = contents

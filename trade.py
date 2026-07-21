@@ -44,7 +44,7 @@ class Trade:
         
         documentation = { # Didn't added entry/exit cus its useless here tbh
             "was_valid": self.was_valid,
-            "date": self.date,
+            "date": self.date.strftime("%Y-%m-%d"),
             "session": self.session,
             "pair": self.pair,
             "direction": self.direction,
