@@ -83,12 +83,20 @@ while True:
 
 # TODO
 
-# Make json loads and dumps work (to_dict)
+# Make json loads and dumps work (to_dict) (for loop)
 
-# Main.py:
-# journal.load_from_json()
-# ...
-# journal.save_to_json()
+# Create CLI flow (firstly in main.py)
+# 1. Program start
+# 2. Load Json
+# 3. Show journal? Y/N
+# 4. Add trade? Y/N
+# 5. Add another trade? Y/N
+# 6. show updated journal? Y/N
+# 7. Save Json
+# 8. exit
+
+# after creating working script transfer it to menu.py
+
 
 # Main menu:
 # 1. Add new trade

@@ -1,4 +1,3 @@
-from trade import Trade
 from pathlib import Path
 import json
 
@@ -31,7 +30,7 @@ class Journal:
     def save_to_json(self):
         path = Path("trades.json")
         for trade in self.trades:
-            pass
+            pass ## turn trade to dict so later json dump will actually work
         contents = json.dumps(self.trades)
         path.write_text(contents)
 
