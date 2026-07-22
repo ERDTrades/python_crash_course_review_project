@@ -1,4 +1,5 @@
 from pathlib import Path
+from trade import Trade
 import json
 
 class Journal:
@@ -29,13 +30,30 @@ class Journal:
     
     def save_to_json(self):
         path = Path("trades.json")
+        temporary = []
         for trade in self.trades:
-            pass ## turn trade to dict so later json dump will actually work
-        contents = json.dumps(self.trades)
+            temporary.append(trade.to_dict())
+        contents = json.dumps(temporary, indent=4)
         path.write_text(contents)
 
     def load_from_json(self):
         path = Path("trades.json")
+        temp_list = []
         contents = path.read_text()
         contents = json.loads(contents)
-        self.trades = contents
+        for trade in contents:
+            temp_list.append(Trade(
+                trade["was_valid"],
+                trade["date"],
+                trade["session"],
+                trade["pair"],
+                trade["direction"],
+                trade["market_condition"],
+                trade["entry"],
+                trade["exit"],
+                trade["rr"],
+                trade["result"],
+                trade["notes"]
+                )
+            )
+        self.trades = temp_list

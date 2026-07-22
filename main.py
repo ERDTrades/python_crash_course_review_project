@@ -77,13 +77,17 @@ while True:
         if input("Do you want to add another trade? Y / N: ").upper() != "Y":
               break
 
-#journal.save_to_json()
+journal.save_to_json()
+
+
 
 
 
 # TODO
 
-# Make json loads and dumps work (to_dict) (for loop)
+#Firstly -> replace write_text in journal.py save to json
+
+#because you want to append not overwrite whole json
 
 # Create CLI flow (firstly in main.py)
 # 1. Program start

@@ -1,1 +1,15 @@
-[]
+[
+    {
+        "was_valid": "Y",
+        "date": "2026-07-22",
+        "session": "London",
+        "pair": "XAUUSD",
+        "direction": "Bullish",
+        "market_condition": "Trending",
+        "rr": 1.33,
+        "result": "W",
+        "entry": 4012.52,
+        "exit": 4013.33,
+        "notes": "ok"
+    }
+]
