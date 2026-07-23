@@ -67,7 +67,51 @@ print("\t----------------------------Users Guide:-----------------------------"
 
 from journal import Journal
 
+date = datetime.now()
+
+while True:
+       
+        journal = Journal()
+
+        journal.load_from_json()
+
+        if input("Show journal? (Y/N): ").upper() == "Y":
+               for trade in journal.trades:
+                      print(trade)
+        elif input("Do you want to continue? (Y/N): ").upper()  != "Y":
+              break
+               
+        while True:
+                trade = create_trade()
+                journal.add_trade(trade)
+                if input("Do you want to add another trade? Y / N: ").upper() != "Y":
+                        break
+
+        #journal.save_to_json()
+
+
+
+
+
+# CLI Flow
+
+#1. Start program
+#2. Create Journal object
+#3. Load trades from JSON
+#4. Show journal? (Y/N)
+#5. Add trade? (Y/N)
+#6. If yes:
+#      - Create trade
+#      - Add trade
+#      - Add another trade? (Y/N)
+#7. Show updated journal? (Y/N)
+#8. Save trades to JSON
+#9. Exit
+
+
 journal = Journal()
+
+journal.load_from_json()
 
 date = datetime.now()
 
@@ -85,19 +129,6 @@ journal.save_to_json()
 
 # TODO
 
-#Firstly -> replace write_text in journal.py save to json
-
-#because you want to append not overwrite whole json
-
-# Create CLI flow (firstly in main.py)
-# 1. Program start
-# 2. Load Json
-# 3. Show journal? Y/N
-# 4. Add trade? Y/N
-# 5. Add another trade? Y/N
-# 6. show updated journal? Y/N
-# 7. Save Json
-# 8. exit
 
 # after creating working script transfer it to menu.py
 
