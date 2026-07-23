@@ -1,6 +1,7 @@
 from pathlib import Path
 from trade import Trade
 import json
+from datetime import date
 
 class Journal:
 
@@ -44,7 +45,7 @@ class Journal:
         for trade in contents:
             temp_list.append(Trade(
                 trade["was_valid"],
-                trade["date"],
+                date.strptime(trade["date"], "%Y-%m-%d"),
                 trade["session"],
                 trade["pair"],
                 trade["direction"],

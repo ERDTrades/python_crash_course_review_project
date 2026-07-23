@@ -11,5 +11,18 @@
         "entry": 4012.52,
         "exit": 4013.33,
         "notes": "ok"
+    },
+    {
+        "was_valid": "Y",
+        "date": "2026-07-23",
+        "session": "London",
+        "pair": "ES",
+        "direction": "Bullish",
+        "market_condition": "Ranging",
+        "rr": 2.22,
+        "result": "BE",
+        "entry": 58200.0,
+        "exit": 58200.01,
+        "notes": "Great trade, followed the rules"
     }
 ]

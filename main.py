@@ -5,7 +5,7 @@ def create_trade():
     """function creating 1 trade"""
     while True:
         try:
-                was_valid_input = input("Trade was valid? Y \ N: ")
+                was_valid_input = input("\nTrade was valid? Y / N: ")
                 date_input = datetime.strptime(input("Date: (YYYY-MM-DD): "),
                                                     "%Y-%m-%d"
                                                     )
@@ -37,102 +37,91 @@ def create_trade():
         except ValueError:
                 print("Invalid input - Please, follow the guidelines")
 
-# Guide Section 
-print("\t----------------------------Users Guide:-----------------------------"
-      "\npairs Example: ->  XAUUSD, EURUSD, NAS100, UK100"
-      "\n---------------------------------------------------------------------"
-      "\nfor journal indicies we will use:"
-      " original names [FTSE NO, UK100 YES]"
-      "\n---------------------------------------------------------------------"
-      "\ndirection -> Bullish / Bearish"
-      "\n---------------------------------------------------------------------"
-      "\nmarket condition:"
-      "\n\t- Trending"
-      "\n\t- Ranging"
-      "\n\t- High Volume"
-      "\n\t- Counter-Trending (Lower Timeframe)"
-      "\n---------------------------------------------------------------------"
-      "\nentry, exit, rr -> use dots between digits"
-      "\n---------------------------------------------------------------------"
-      "\nsession -> London, New York, Asia"
-      "\n---------------------------------------------------------------------"
-      "\nresult -> W, L, BE, W closed early, small W, small L"
-      "\n---------------------------------------------------------------------"
-      "\ndate -> input date like this: 'YEAR-MONTH-DAY' for example 2026-07-17"
-      "\n---------------------------------------------------------------------"
-      "\nnotes -> overall note -> I will set the limit for maximum "
-      "350 characters")
+def guide():
+        # Guide Section 
+        print("\t----------------------------Users Guide:-------------"
+        "----------------"
+        "\npairs Example: ->  XAUUSD, EURUSD, NAS100, UK100"
+        "\n-----------------------------------------------------------"
+        "----------"
+        
+        "\nfor journal indicies we will use:"
+        " original names [FTSE NO, UK100 YES]"
 
-
-
+        "\n-----------------------------------------------------------"
+        "----------"
+        
+        "\ndirection -> Bullish / Bearish"
+        
+        "\n-----------------------------------------------------------"
+        "----------"
+        
+        "\nmarket condition:"
+        "\n\t- Trending"
+        "\n\t- Ranging"
+        "\n\t- High Volume"
+        "\n\t- Counter-Trending (Lower Timeframe)"
+        
+        "\n-----------------------------------------------------------"
+        "----------"
+        
+        "\nentry, exit, rr -> use dots between digits"
+        "\n-----------------------------------------------------------"
+        "----------"
+        
+        "\nsession -> London, New York, Asia"
+        "\n-----------------------------------------------------------"
+        "----------"
+        
+        "\nresult -> W, L, BE, W closed early, small W, small L"
+        "\n-----------------------------------------------------------"
+        "----------"
+        
+        "\ndate -> input date like this: 'YEAR-MONTH-DAY' for example "
+        "2026-07-17"
+        
+        "\n-----------------------------------------------------------"
+        "----------"
+        
+        "\nnotes -> overall note -> I will set the limit for maximum "
+        "350 characters")
 from journal import Journal
-
-date = datetime.now()
-
-while True:
-       
-        journal = Journal()
-
-        journal.load_from_json()
-
-        if input("Show journal? (Y/N): ").upper() == "Y":
-               for trade in journal.trades:
-                      print(trade)
-        elif input("Do you want to continue? (Y/N): ").upper()  != "Y":
-              break
-               
-        while True:
-                trade = create_trade()
-                journal.add_trade(trade)
-                if input("Do you want to add another trade? Y / N: ").upper() != "Y":
-                        break
-
-        #journal.save_to_json()
-
-
-
-
-
-# CLI Flow
-
-#1. Start program
-#2. Create Journal object
-#3. Load trades from JSON
-#4. Show journal? (Y/N)
-#5. Add trade? (Y/N)
-#6. If yes:
-#      - Create trade
-#      - Add trade
-#      - Add another trade? (Y/N)
-#7. Show updated journal? (Y/N)
-#8. Save trades to JSON
-#9. Exit
-
 
 journal = Journal()
 
 journal.load_from_json()
 
-date = datetime.now()
-
 while True:
-        trade = create_trade()
-        journal.add_trade(trade)
-        if input("Do you want to add another trade? Y / N: ").upper() != "Y":
-              break
+        if input("Show journal? (Y/N): ").strip().upper() == "Y":
+               for trade in journal.trades:
+                      print(trade)
+        if input("\nDo you want to continue? (Y/N): ").strip().upper() != "Y":
+                break
 
-journal.save_to_json()
+        if input("\nDo you want to see Users Guide"
+                " before entering new trade? (Y/N): "
+                ).strip().upper() == "Y":
+               # Guide Section 
+                guide()
+        while True:
+                trade = create_trade()
+                journal.add_trade(trade)
+                journal.save_to_json()
+                if input("Do you want to add another trade?"
+                " Y / N: ").strip().upper() != "Y":
+                        break
 
-
-
+if input("Do you want to see updated journal? (Y/N): ").strip().upper() == "Y":
+        for trade in journal.trades:
+                print(trade)
+else:
+        print("Have a nice day :p")
 
 
 # TODO
 
 
-# after creating working script transfer it to menu.py
-
-
+# transfer CLI to menu.py and:
 # Main menu:
 # 1. Add new trade
 # 2. View journal
