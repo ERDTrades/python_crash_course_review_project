@@ -34,3 +34,4 @@ if __name__ == "__main__":
 # Edit trade
 
 # Charts
+# 2 opions matplotlib and plotly
