@@ -1,7 +1,9 @@
 from pathlib import Path
 from trade import Trade
 import json
-from datetime import date
+from datetime import datetime
+
+trade = Trade()
 
 class Journal:
 
@@ -10,6 +12,7 @@ class Journal:
 
     def add_trade(self, trade):
         """"Adds trade to the journal"""
+        trade.id = len(self.trades) + 1
         self.trades.append(trade)
         
     def display_trades(self):
@@ -21,31 +24,44 @@ class Journal:
         """"Count trades"""
         return f"There are {len(self.trades)} trades in your journal"
 
-    def id_find(self):
+    def id_find(self, trade_id):
         """Find trades by id"""
-        pass
+        for trade in self.trades:
+            if trade.id == trade_id:
+                return trade
 
+        return None
+  
     def del_trade(self):
         """deletes trades"""
         pass
     
     def save_to_json(self):
         path = Path("trades.json")
-        temporary = []
+
+        trade_data = []
+
         for trade in self.trades:
-            temporary.append(trade.to_dict())
-        contents = json.dumps(temporary, indent=4)
+            trade_data.append(trade.to_dict())
+        contents = json.dumps(trade_data, indent=4)
+
         path.write_text(contents)
 
     def load_from_json(self):
         path = Path("trades.json")
-        temp_list = []
+        if not path.exists():
+            return
+        
+        load_trade = []
+
         contents = path.read_text()
         contents = json.loads(contents)
+
         for trade in contents:
-            temp_list.append(Trade(
+            load_trade.append(Trade(
+                trade["id"],
                 trade["was_valid"],
-                date.strptime(trade["date"], "%Y-%m-%d"),
+                datetime.strptime(trade["date"], "%Y-%m-%d").date(),
                 trade["session"],
                 trade["pair"],
                 trade["direction"],
@@ -57,4 +73,4 @@ class Journal:
                 trade["notes"]
                 )
             )
-        self.trades = temp_list
+        self.trades = load_trade

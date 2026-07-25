@@ -5,6 +5,8 @@ from trade_input import guide
 
 journal = Journal()
 
+journal.load_from_json()
+
 
 def show_menu():
     print(
@@ -13,7 +15,8 @@ def show_menu():
         "\n========================"
         "\n1. Add Trade"
         "\n2. View Journal"
-        "\n3. Exit"
+        "\n3. Search trade by ID"
+        "\n4. Exit"
     )
 
 def handle_option(option, journal):
@@ -25,7 +28,7 @@ def menu_loop():
     while True:
         if input("Show menu? (Y/N): ").strip().upper() == "Y":
             show_menu()
-        option = input("Choose an option(1,2,3): ").strip()
+        option = input("Choose an option (1-4): ").strip()
 
         if option == "1":
             if input("\nDo you want to see Users Guide"
@@ -41,10 +44,25 @@ def menu_loop():
                     " Y / N: ").strip().upper() != "Y":
                             break
                         
-        if option == "2":
-            if input("Do you want to see updated journal? (Y/N): ").strip().upper() == "Y":
-                for trade in journal.trades:
-                    print(trade)
+        elif option == "2":
+            if (input("Do you want to see updated journal? (Y/N): ")
+            .strip().upper() == "Y"):
+                journal.display_trades()
 
-        if option == "3":
-            break
+        elif option == "3":
+             if (input("Do you want to search trade by id? (Y/N): ")
+                 .strip().upper() == "Y"):
+                  
+                  trade_id = int(input("Enter trade ID: "))
+                  trade = journal.id_find(trade_id)
+
+                  if trade:
+                       print(trade)
+                  else:
+                       print("Trade not found.")
+
+        elif option == "4":
+                break
+
+        else: 
+             print("Invalid option")

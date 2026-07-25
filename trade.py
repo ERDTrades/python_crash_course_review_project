@@ -1,13 +1,17 @@
 from datetime import datetime
+from journal import Journal
+
+journal = Journal()
 
 class Trade:
     
-    def __init__(self, was_valid, date,
+    def __init__(self, id, was_valid, date,
                 session, pair, direction, market_condition,
                 entry, exit, rr, 
                 result,
                 notes
                 ):
+        self.id = id
         self.was_valid = was_valid # boolean
         self.date = date # I will need data module
         self.session = session # session
@@ -21,7 +25,7 @@ class Trade:
         self.notes = notes # big string
 
     def __str__(self):
-        return (f"Trade:\n"
+        return (f"Trade ID: {self.id} \n"
                 f"Trade was valid?: {bool(self.was_valid)}"
                 f"\nDate: {self.date.strftime('%Y-%m-%d')}"
                 f"\nSession: {self.session}"
@@ -43,6 +47,7 @@ class Trade:
     def to_dict(self,):
         
         documentation = { # Didn't added entry/exit cus its useless here tbh
+            "id": self.id,
             "was_valid": self.was_valid,
             "date": self.date.strftime("%Y-%m-%d"),
             "session": self.session,
