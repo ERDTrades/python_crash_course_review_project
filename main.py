@@ -10,11 +10,7 @@ if __name__ == "__main__":
 
 # TODO
 
-# del_trades function in journal.py
-# edit_trade()
-# and extend menu.py with it.
 
-# Later
 # Statistics
 # - Trade count
 # - Win rate
@@ -22,9 +18,19 @@ if __name__ == "__main__":
 # - Average win RR
 # - Average loss RR
 
-# Find trade by ID
+# in menu.py as a choice that shows full statistics of trades
+# Class Statistics in statistics.py
+# and few function for counting
+# like trade_count()
+# Most_common_session()
+# win_rate()
+# average_rr()
+# and lastly
+# show_statistics() which will print all stats from previous functions
 
-# Delete trade
+# and menu.py
+# stats = Statistics(journal.trades)
+# stats.show_statistics()
 
 # Edit trade
 
