@@ -1,28 +1,16 @@
 [
     {
-        "was_valid": "Y",
-        "date": "2026-07-22",
-        "session": "London",
-        "pair": "XAUUSD",
-        "direction": "Bullish",
-        "market_condition": "Trending",
-        "rr": 1.33,
+        "id": 2,
+        "was_valid": "N",
+        "date": "2026-07-26",
+        "session": "NYC",
+        "pair": "NAS100",
+        "direction": "Short",
+        "market_condition": "ranging",
+        "rr": 2.43,
         "result": "W",
-        "entry": 4012.52,
-        "exit": 4013.33,
-        "notes": "ok"
-    },
-    {
-        "was_valid": "Y",
-        "date": "2026-07-23",
-        "session": "London",
-        "pair": "ES",
-        "direction": "Bullish",
-        "market_condition": "Ranging",
-        "rr": 2.22,
-        "result": "BE",
-        "entry": 58200.0,
-        "exit": 58200.01,
-        "notes": "Great trade, followed the rules"
+        "entry": 13433.12,
+        "exit": 13500.0,
+        "notes": "OK"
     }
 ]

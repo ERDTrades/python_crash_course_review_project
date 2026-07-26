@@ -1,17 +1,14 @@
 from datetime import datetime
-from journal import Journal
-
-journal = Journal()
 
 class Trade:
     
-    def __init__(self, id, was_valid, date,
+    def __init__(self, was_valid, date,
                 session, pair, direction, market_condition,
                 entry, exit, rr, 
                 result,
                 notes
                 ):
-        self.id = id
+        self.id = None
         self.was_valid = was_valid # boolean
         self.date = date # I will need data module
         self.session = session # session
@@ -23,6 +20,7 @@ class Trade:
         self.rr = rr # float
         self.result = result #string
         self.notes = notes # big string
+
 
     def __str__(self):
         return (f"Trade ID: {self.id} \n"

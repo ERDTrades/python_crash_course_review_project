@@ -3,7 +3,6 @@ from trade import Trade
 import json
 from datetime import datetime
 
-trade = Trade()
 
 class Journal:
 
@@ -17,6 +16,7 @@ class Journal:
         
     def display_trades(self):
         """Displays trades"""
+        print("Liczba transakcji: ", len(self.trades))
         for trade in self.trades:
             print(trade)
 
@@ -32,9 +32,13 @@ class Journal:
 
         return None
   
-    def del_trade(self):
+    def del_trade(self, trade_id):
         """deletes trades"""
-        pass
+        if self.id_find(trade_id):
+            self.trades.remove(self.id_find(trade_id))
+            return True
+        else:
+            return False
     
     def save_to_json(self):
         path = Path("trades.json")
@@ -47,7 +51,7 @@ class Journal:
 
         path.write_text(contents)
 
-    def load_from_json(self):
+    def load_from_json(self,):
         path = Path("trades.json")
         if not path.exists():
             return
@@ -58,8 +62,7 @@ class Journal:
         contents = json.loads(contents)
 
         for trade in contents:
-            load_trade.append(Trade(
-                trade["id"],
+            trade_obj = Trade(
                 trade["was_valid"],
                 datetime.strptime(trade["date"], "%Y-%m-%d").date(),
                 trade["session"],
@@ -71,6 +74,10 @@ class Journal:
                 trade["rr"],
                 trade["result"],
                 trade["notes"]
-                )
             )
+
+            trade_obj.id = trade["id"]
+
+            load_trade.append(trade_obj)
+
         self.trades = load_trade

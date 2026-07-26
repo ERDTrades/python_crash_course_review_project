@@ -10,14 +10,9 @@ if __name__ == "__main__":
 
 # TODO
 
-# menu_loop() - refactoring - possible error exceptions
-
-# transfer CLI to menu.py and:
-# Main menu:
-# 1. Add new trade
-# 2. View journal
-# 3. Exit
-
+# del_trades function in journal.py
+# edit_trade()
+# and extend menu.py with it.
 
 # Later
 # Statistics

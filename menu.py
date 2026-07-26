@@ -7,7 +7,6 @@ journal = Journal()
 
 journal.load_from_json()
 
-
 def show_menu():
     print(
         "========================"
@@ -16,7 +15,8 @@ def show_menu():
         "\n1. Add Trade"
         "\n2. View Journal"
         "\n3. Search trade by ID"
-        "\n4. Exit"
+        "\n4. Delete Trade by ID"
+        "\n5. Exit"
     )
 
 def handle_option(option, journal):
@@ -26,9 +26,9 @@ def handle_option(option, journal):
 def menu_loop():
     """Main menu loop"""
     while True:
-        if input("Show menu? (Y/N): ").strip().upper() == "Y":
+        if input("Show menu (Y/N): ").strip().upper() == "Y":
             show_menu()
-        option = input("Choose an option (1-4): ").strip()
+        option = input("Choose an option (1-5): ").strip()
 
         if option == "1":
             if input("\nDo you want to see Users Guide"
@@ -62,7 +62,23 @@ def menu_loop():
                        print("Trade not found.")
 
         elif option == "4":
+             if (input("Do you want to delete trade? (Y/N): ")
+             .strip().upper() == "Y"
+             ):
+                  
+                  trade_id = int(input("Enter trade ID that you want to delete: "))
+                  trade = journal.del_trade(trade_id)
+
+                  if trade:
+                       journal.save_to_json()
+                       print("Trade deleted")
+                  else:
+                       print("Trade not found")
+                       
+        elif option == "5":
                 break
 
         else: 
              print("Invalid option")
+
+
