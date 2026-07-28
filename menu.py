@@ -1,7 +1,7 @@
 from journal import Journal
 from trade_input import create_trade
 from trade_input import guide
-
+from statistics import Statistics
 
 journal = Journal()
 
@@ -12,11 +12,12 @@ def show_menu():
         "========================"
         "\nTrading Journal"
         "\n========================"
+        "\n0. Exit"
         "\n1. Add Trade"
         "\n2. View Journal"
         "\n3. Search trade by ID"
         "\n4. Delete Trade by ID"
-        "\n5. Exit"
+        "\n5. "
     )
 
 def handle_option(option, journal):
@@ -74,11 +75,18 @@ def menu_loop():
                        print("Trade deleted")
                   else:
                        print("Trade not found")
-                       
+
         elif option == "5":
+             stats = Statistics(journal.trades)
+             stats.show_statistics()
+             pass
+                       
+        elif option == "0":
                 break
 
         else: 
              print("Invalid option")
+
+
 
 

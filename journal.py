@@ -20,7 +20,7 @@ class Journal:
         for trade in self.trades:
             print(trade)
 
-    def trade_count(self):
+    def trade_count(self): # delete 
         """"Count trades"""
         return f"There are {len(self.trades)} trades in your journal"
 
