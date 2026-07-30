@@ -18,13 +18,46 @@ class Statistics(): #later do this class using NumPy
         print(final)
 
     def average_win_rr(self):
-        pass
+        awr = []
+        for trade in self.trades:
+            if trade.result == "W":
+                awr.append(trade.rr)
+
+
+        if awr:
+            awr_count_sum = sum(awr)
+            awr_final = awr_count_sum / len(awr)
+            print(awr_final)
+        else:
+            print("Empty")
 
     def average_loss_rr(self):
-        pass
+        awl = []
+        for trade in self.trades:
+            if trade.result == "L":
+                awl.append(trade.rr)
+
+        if awl:
+            awl_count_sum = sum(awl)
+            awl_final = awl_count_sum / len(awl)
+            print(awl_final)
+        else:
+            print("Empty")
 
     def most_common_session(self):
-        pass
+        london = []
+        nyc = []
+        for trade in self.trades:
+            if trade.session == "LONDON":
+                london.append(trade.session)
+            elif trade.session == "NYC":
+                nyc.append(trade.session)
+        if len(london) > len(nyc):
+            print("Most common session is London.")
+        elif len(london) < len(nyc):
+            print("Most common session is NYC.")
+        elif len(london) == len(nyc):
+            print("Both sessions have the same amount of trades.")
 
     def show_statistics(self):
         pass

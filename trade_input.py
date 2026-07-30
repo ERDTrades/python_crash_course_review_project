@@ -9,7 +9,13 @@ def create_trade():
                 date_input = datetime.strptime(input("Date: (YYYY-MM-DD): "),
                                                     "%Y-%m-%d"
                                                     )
-                session_input = input("Session: ")
+                while True:
+                        session_input = input("Session: ").strip().upper()
+                        if session_input == "NYC" or session_input == "LONDON":
+                               break
+                        else:
+                               print("Please enter correct session name")
+
                 pair_input = input("Pair: ")
                 direction_input = input("Direction: ")
                 market_condition_input = input("Market condition: ")
