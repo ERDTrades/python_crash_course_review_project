@@ -47,17 +47,43 @@ class Statistics(): #later do this class using NumPy
     def most_common_session(self):
         london = []
         nyc = []
+        asia = []
         for trade in self.trades:
             if trade.session == "LONDON":
                 london.append(trade.session)
+
             elif trade.session == "NYC":
                 nyc.append(trade.session)
-        if len(london) > len(nyc):
-            print("Most common session is London.")
-        elif len(london) < len(nyc):
-            print("Most common session is NYC.")
-        elif len(london) == len(nyc):
-            print("Both sessions have the same amount of trades.")
 
+            elif trade.session == "ASIA":
+                asia.append(trade.session)
+
+        if len(london) > len(nyc) and len(london) > len(asia):
+            print("Most common session is London.")
+
+        elif len(nyc) > len(london) and len(nyc) > len(asia):
+            print("Most common session is NYC.")
+
+        elif len(asia) > len(london) and len(asia) > len(nyc):
+            print("Most common session is Asia")
+
+        elif len(london) == len(nyc) > len(asia):
+            print("Most common sessions are London and NYC.")
+
+        elif len(london) == len(asia) > len(nyc):
+            print("Most common sessions are London and Asia.")
+
+        elif len(nyc) == len(asia) > len(london):
+            print("Most common sessions are NYC and Asia.")
+
+        elif len(london) == len(nyc) == len(asia):
+            print("All sessions have the same amount of trades.")
+        
+
+
+    def most_winning_market_condition():
+        """Basically defines on which market condition
+        U have the biggest winratio"""
+        pass
     def show_statistics(self):
         pass

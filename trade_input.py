@@ -5,25 +5,80 @@ def create_trade():
     """function creating 1 trade"""
     while True:
         try:
-                was_valid_input = input("\nTrade was valid? Y / N: ")
+                while True:
+                        was_valid_input = (input("\nTrade was valid? Y / N: ")
+                        ).strip().upper()
+                        if was_valid_input == "N" or was_valid_input == "Y":
+                               break
+                        else:
+                               print("Please follow the guidelines")
+
                 date_input = datetime.strptime(input("Date: (YYYY-MM-DD): "),
                                                     "%Y-%m-%d"
                                                     )
+                
                 while True:
                         session_input = input("Session: ").strip().upper()
-                        if session_input == "NYC" or session_input == "LONDON":
+                        if (
+                            session_input == "NYC"
+                            or session_input == "LONDON"
+                            or session_input == "ASIA"
+                        ):
                                break
                         else:
-                               print("Please enter correct session name")
+                               print("Please Follow the Guidelines")
 
-                pair_input = input("Pair: ")
-                direction_input = input("Direction: ")
-                market_condition_input = input("Market condition: ")
+                pair_input = input("Pair: ").upper().strip()
+
+                while True:
+                        direction_input = input("Direction: ").upper().strip()
+                        if (
+                            direction_input == "LONG"
+                            or direction_input == "SHORT"):
+                               break
+                        else:
+                               print("Please Follow the Guidelines")
+
+                while True:              
+                        market_condition_input = (input("Market condition: ")
+                        .lower().strip()
+                        )
+                        if (
+                            market_condition_input == "trending"
+                            or market_condition_input == "counter-trending"
+                            or market_condition_input == "trending(lower-tf)"
+                            or market_condition_input
+                            == "counter-trending(lower-tf)"
+                            or market_condition_input == "ranging"
+                            or market_condition_input == "high-volume"
+                            or market_condition_input == "low-volume"
+                        ):
+                                break
+                        else:
+                               print("Please Follow the Guidelines")
+
+
                 rr_input = float(input("Risk/Reward: "))
-                result_input = input("Result: ")
+
+                while True:
+                       result_input = input("Result: ").strip().upper()
+                       if (result_input == "W"
+                            or result_input == "L"
+                            or result_input == "BE"
+                       ):
+                              break
+                       else:
+                              print("Please Follow the Guidelines")
                 entry_input = float(input("Entry: "))
                 exit_input = float(input("Exit: "))
-                notes_input = input("Notes: ")
+
+                while True:
+                     notes_input = input("Notes: ")
+                     if len(notes_input) <= 350:
+                            break
+                     else:
+                            print("Please Follow the Guidelines"
+                            " - max 350characters.")
 
                 # Trade object
                 trade = Trade(
@@ -57,16 +112,19 @@ def guide():
         "\n-----------------------------------------------------------"
         "----------"
         
-        "\ndirection -> Bullish / Bearish"
+        "\ndirection -> LONG / SHORT "
         
         "\n-----------------------------------------------------------"
         "----------"
         
         "\nmarket condition:"
-        "\n\t- Trending"
-        "\n\t- Ranging"
-        "\n\t- High Volume"
-        "\n\t- Counter-Trending (Lower Timeframe)"
+        "\n\t- trending"
+        "\n\t- rending(lower-tf)"
+        "\n\t- ranging"
+        "\n\t- high-volume"
+        "\n\t- low-volume"
+        "\n\t- counter-Trending (Lower Timeframe)"
+        "\n\t- counter-trending"
         
         "\n-----------------------------------------------------------"
         "----------"
@@ -79,7 +137,7 @@ def guide():
         "\n-----------------------------------------------------------"
         "----------"
         
-        "\nresult -> W, L, BE, W closed early, small W, small L"
+        "\nresult -> W, L, BE"
         "\n-----------------------------------------------------------"
         "----------"
         
