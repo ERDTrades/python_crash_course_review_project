@@ -119,11 +119,11 @@ def guide():
         
         "\nmarket condition:"
         "\n\t- trending"
-        "\n\t- rending(lower-tf)"
+        "\n\t- trending(lower-tf)"
         "\n\t- ranging"
         "\n\t- high-volume"
         "\n\t- low-volume"
-        "\n\t- counter-Trending (Lower Timeframe)"
+        "\n\t- counter-trending(lower-tf)"
         "\n\t- counter-trending"
         
         "\n-----------------------------------------------------------"

@@ -7,11 +7,21 @@ class Statistics(): #later do this class using NumPy
     def trade_count(self):
         """"Count trades"""
         return f"There are {len(self.trades)} trades in your journal"
-    def win_rate(self,):
+    def win_rate(self, trades):
         """win rate mean"""
-        pass
+        losses = []
+        for trade in trades:
+            if trade.result == "L":
+                losses.append(trade)
+        if not trades:
+            return "No Trades"
 
-    def average_rr(self,): 
+        wins = len(trades) - len(losses)
+        win_rate = wins / len(trades) * 100
+
+        return win_rate
+    
+    def average_rr(self): 
         rr_mean = [trade.rr for trade in self.trades]
         count_sum = sum(rr_mean)
         final = count_sum / len(rr_mean)
@@ -81,9 +91,69 @@ class Statistics(): #later do this class using NumPy
         
 
 
-    def most_winning_market_condition():
+    def market_condition_wrs(self):
         """Basically defines on which market condition
         U have the biggest winratio"""
-        pass
+        trending = []
+        trending_lower_tf = []
+        ranging = []
+        high_volume = []
+        low_volume = []
+        counter_trending_ltf = []
+        counter_trending = []
+
+        for trade in self.trades:
+            if trade.market_condition == "trending":
+                trending.append(trade)
+
+            elif trade.market_condition == "trending(lower-tf)":
+                trending_lower_tf.append(trade)
+
+            elif trade.market_condition == "ranging":
+                ranging.append(trade)
+
+            elif trade.market_condition == "high-volume":
+                high_volume.append(trade)
+
+            elif trade.market_condition == "low-volume":
+                low_volume.append(trade)
+
+            elif trade.market_condition == "counter-trending(lower-tf)":
+                counter_trending_ltf.append(trade)
+
+            elif trade.market_condition == "counter-trending":
+                counter_trending.append(trade)
+
+
+        trending_w = self.win_rate(trending)
+        print(f"Win rate on Trending: {trending_w:.2f}%")
+
+        trending_ltf_w = self.win_rate(trending_lower_tf)
+        print(f"Win rate on trending lower timeframe: {trending_ltf_w:.2f}%")
+
+        ranging_w = self.win_rate(ranging)
+        print(f"Win rate on ranging: {ranging_w:.2f}%")
+
+        high_vol_w = self.win_rate(high_volume)
+        print(f"Win rate on high_vol: {high_vol_w:.2f}%")
+
+        low_vol_w = self.win_rate(low_volume)
+        print(f"Win rate on low volume: {low_vol_w:.2f}%")
+
+        counter_t_ltf = self.win_rate(counter_trending_ltf)
+        print(f"Win rate on counter trending lower timeframe is:"
+              f" {counter_t_ltf:.2f}%")
+
+        counter_t_w = self.win_rate(counter_trending)
+        print(f"Win rate on counter trending is: {counter_t_w:.2f}%")
+
+        # Later do combined because som of them could be like:
+        # trending + counter_trending_ltf + high vol
+        # You can also return a dictionary "Trending": ...,
+        # with final prints u aswell might wanna add:
+        # Trending:
+        # Trades: ..
+        # Win Rate: ...%
+        #but I will have to think whether i want it here or in menu.py
     def show_statistics(self):
         pass
