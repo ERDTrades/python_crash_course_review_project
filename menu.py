@@ -80,7 +80,7 @@ def menu_loop():
                        print("Trade not found")
 
         elif option == "5":
-             stats.average_rr()
+             stats.show_statistics
                        
         elif option == "0":
                 break

@@ -156,4 +156,12 @@ class Statistics(): #later do this class using NumPy
         # Win Rate: ...%
         #but I will have to think whether i want it here or in menu.py
     def show_statistics(self):
-        pass
+        print(f"Amount of trades: {self.trade_count()}")
+        print(f"\nWin rate: {self.win_rate(self.trades):.2f}%")
+        print(f"\nAverage RR: {self.average_rr()}")
+        print(f"\nAverage Winners RR: {self.average_win_rr()}")
+        print(f"\nAverage Losses RR: {self.average_loss_rr()}")
+        print(f"\nMost common session: {self.most_common_session()}")
+
+        print(f"\n========Market Condition========")
+        self.market_condition_wrs()
