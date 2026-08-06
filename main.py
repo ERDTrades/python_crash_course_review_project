@@ -10,11 +10,15 @@ if __name__ == "__main__":
 
 # TODO
 
-# and menu.py
-# stats = Statistics(journal.trades)
-# stats.show_statistics()
 
+#Long vs Short WR
+#Most traded pair
+#Win Rate by Session
+#Max losing streak
+#Max winning streak
 # Edit trade
+
+
 
 # Charts
 # 2 opions matplotlib and plotly
@@ -24,16 +28,9 @@ if __name__ == "__main__":
 
 
 # later for statistics
-#Win Rate by Session
-#Win Rate by Market Condition
-#Most traded pair
-#Most profitable pair (v2)
 #Long vs Short WR
 #London vs NYC vs Asia
 #Trades per day/week/month
-#Average trades per day
-#Max losing streak
-#Max winning streak
 #Expectancy
 #Profit Factor (gdy dodasz realized R)
 #Sharpe Ratio (kiedyś)

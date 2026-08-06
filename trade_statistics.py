@@ -147,14 +147,61 @@ class Statistics(): #later do this class using NumPy
         counter_t_w = self.win_rate(counter_trending)
         print(f"Win rate on counter trending is: {counter_t_w:.2f}%")
 
-        # Later do combined because som of them could be like:
-        # trending + counter_trending_ltf + high vol
-        # You can also return a dictionary "Trending": ...,
-        # with final prints u aswell might wanna add:
-        # Trending:
-        # Trades: ..
-        # Win Rate: ...%
-        #but I will have to think whether i want it here or in menu.py
+
+    def long_vs_short_wr(self):
+        long = []
+        short = []
+        for trade in self.trades:
+            if trade.direction == "LONG":
+                long.append(trade)
+
+            elif trade.direction == "SHORT":
+                short.append(trade)
+            
+        print(f"Win rate on long positions: {self.win_rate(long):.2f}%")
+        print(f"Win rate on short positions: {self.win_rate(short):.2f}%")
+
+    def win_rate_by_session(self):
+        london = []
+        nyc = []
+        asia = []
+        for trade in self.trades:
+            if trade.session == "LONDON":
+                london.append(trade)
+
+            elif trade.session == "NYC":
+                nyc.append(trade)
+
+            elif trade.session == "ASIA":
+                asia.append(trade)
+
+        print(f"Win rate on London session is: {self.win_rate(london):.2f}%")
+        print(f"Win rate on NYC session is: {self.win_rate(nyc):.2f}%")
+        print(f"Win rate on Asia session is: {self.win_rate(asia):.2f}%")
+
+
+    def most_trader_pair(self):
+        pairs = {}
+        for trade in self.trades:
+            if trade.pair in pairs:
+                pairs[trade.pair] += 1
+
+            if trade.pair not in pairs:
+                pairs[trade.pair] = 1
+
+        #for pair, value in pairs.items():
+        #        
+
+                
+        #print(f"most trader pairs is: {}")
+        pass
+    def max_losing_streak(self):
+        pass
+
+    def max_winning_streak(self):
+        pass 
+
+
     def show_statistics(self):
         print(f"Amount of trades: {self.trade_count()}")
         print(f"\nWin rate: {self.win_rate(self.trades):.2f}%")
