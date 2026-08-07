@@ -80,14 +80,10 @@ def menu_loop():
                        print("Trade not found")
 
         elif option == "5":
-             stats.show_statistics
+             stats.show_statistics()
                        
         elif option == "0":
                 break
 
         else: 
              print("Invalid option")
-
-
-
-

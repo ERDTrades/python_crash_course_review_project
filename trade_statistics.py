@@ -6,7 +6,7 @@ class Statistics(): #later do this class using NumPy
         
     def trade_count(self):
         """"Count trades"""
-        return f"There are {len(self.trades)} trades in your journal"
+        return len(self.trades)
     def win_rate(self, trades):
         """win rate mean"""
         losses = []
@@ -14,7 +14,7 @@ class Statistics(): #later do this class using NumPy
             if trade.result == "L":
                 losses.append(trade)
         if not trades:
-            return "No Trades"
+            return None
 
         wins = len(trades) - len(losses)
         win_rate = wins / len(trades) * 100
@@ -25,7 +25,7 @@ class Statistics(): #later do this class using NumPy
         rr_mean = [trade.rr for trade in self.trades]
         count_sum = sum(rr_mean)
         final = count_sum / len(rr_mean)
-        print(final)
+        return final
 
     def average_win_rr(self):
         awr = []
@@ -37,7 +37,7 @@ class Statistics(): #later do this class using NumPy
         if awr:
             awr_count_sum = sum(awr)
             awr_final = awr_count_sum / len(awr)
-            print(awr_final)
+            return awr_final
         else:
             print("Empty")
 
@@ -50,7 +50,7 @@ class Statistics(): #later do this class using NumPy
         if awl:
             awl_count_sum = sum(awl)
             awl_final = awl_count_sum / len(awl)
-            print(awl_final)
+            return awl_final
         else:
             print("Empty")
 
@@ -69,25 +69,25 @@ class Statistics(): #later do this class using NumPy
                 asia.append(trade.session)
 
         if len(london) > len(nyc) and len(london) > len(asia):
-            print("Most common session is London.")
+            return "London"
 
         elif len(nyc) > len(london) and len(nyc) > len(asia):
-            print("Most common session is NYC.")
+            return "NYC"
 
         elif len(asia) > len(london) and len(asia) > len(nyc):
-            print("Most common session is Asia")
+            return "Asia"
 
         elif len(london) == len(nyc) > len(asia):
-            print("Most common sessions are London and NYC.")
+            return "London and Nyc"
 
         elif len(london) == len(asia) > len(nyc):
-            print("Most common sessions are London and Asia.")
+            return "London and Asia"
 
         elif len(nyc) == len(asia) > len(london):
-            print("Most common sessions are NYC and Asia.")
+            return "NYC and Asia"
 
         elif len(london) == len(nyc) == len(asia):
-            print("All sessions have the same amount of trades.")
+            return "All sessions have the same amount of trades."
         
 
 
@@ -124,28 +124,50 @@ class Statistics(): #later do this class using NumPy
             elif trade.market_condition == "counter-trending":
                 counter_trending.append(trade)
 
-
         trending_w = self.win_rate(trending)
-        print(f"Win rate on Trending: {trending_w:.2f}%")
+        if trending_w is None:
+            print("Win rate on Trending: No trades")
+        else:
+            print(f"Win rate on Trending: {trending_w:.2f}%")
 
         trending_ltf_w = self.win_rate(trending_lower_tf)
-        print(f"Win rate on trending lower timeframe: {trending_ltf_w:.2f}%")
+        if trending_ltf_w is None:
+            print("Win rate on trending Lower timeframe: No trades")
+        else:
+            print(f"Win rate on trending lower timeframe: {trending_ltf_w:.2f}%")
 
         ranging_w = self.win_rate(ranging)
-        print(f"Win rate on ranging: {ranging_w:.2f}%")
+        if ranging_w is None:
+            print("Win rate on ranging: No trades")
+        else:
+            print(f"Win rate on ranging: {ranging_w:.2f}%")
 
         high_vol_w = self.win_rate(high_volume)
-        print(f"Win rate on high_vol: {high_vol_w:.2f}%")
+        if high_vol_w is None:
+            print("Win rate on high volume: No trades")
+        else:
+            print(f"Win rate on high volume: {high_vol_w:.2f}%")
 
         low_vol_w = self.win_rate(low_volume)
-        print(f"Win rate on low volume: {low_vol_w:.2f}%")
+        if low_vol_w is None:
+            print("Win rate on low volume: No trades")
+        else:
+            print(f"Win rate on low volume: {low_vol_w:.2f}%")
+
 
         counter_t_ltf = self.win_rate(counter_trending_ltf)
-        print(f"Win rate on counter trending lower timeframe is:"
+        if counter_t_ltf is None:
+            print("Win rate on counter trending lower timeframe: No trades")
+        else:
+            print(f"Win rate on counter trending lower timeframe is:"
               f" {counter_t_ltf:.2f}%")
 
+
         counter_t_w = self.win_rate(counter_trending)
-        print(f"Win rate on counter trending is: {counter_t_w:.2f}%")
+        if counter_t_w is None:
+            print("Win rate on counter trending is: No trades")
+        else:
+            print(f"Win rate on counter trending is: {counter_t_w:.2f}%")
 
 
     def long_vs_short_wr(self):
@@ -157,9 +179,18 @@ class Statistics(): #later do this class using NumPy
 
             elif trade.direction == "SHORT":
                 short.append(trade)
-            
-        print(f"Win rate on long positions: {self.win_rate(long):.2f}%")
-        print(f"Win rate on short positions: {self.win_rate(short):.2f}%")
+
+        long_wr = self.win_rate(long)
+        if long_wr is None:
+            print("Win rate on long positions: No trades")
+        else:
+            print(f"Win rate on long positions: {self.win_rate(long_wr):.2f}%")
+
+        short_wr = self.win_rate(short)
+        if short_wr is None:
+            print("Win rate on short positions: No trades")
+        else:
+            print(f"Win rate on short positions: {self.win_rate(short_wr):.2f}%")
 
     def win_rate_by_session(self):
         london = []
@@ -175,12 +206,26 @@ class Statistics(): #later do this class using NumPy
             elif trade.session == "ASIA":
                 asia.append(trade)
 
-        print(f"Win rate on London session is: {self.win_rate(london):.2f}%")
-        print(f"Win rate on NYC session is: {self.win_rate(nyc):.2f}%")
-        print(f"Win rate on Asia session is: {self.win_rate(asia):.2f}%")
+        london_wr = self.win_rate(london)
+        if london_wr is None:
+            print("Win rate on london session: No trades")
+        else:
+            print(f"Win rate on London session is: {self.win_rate(london_wr):.2f}%")
+
+        nyc_wr = self.win_rate(nyc)
+        if nyc_wr is None:
+            print("Win rate on Nyc session: No trades")
+        else:
+            print(f"Win rate on NYC session is: {self.win_rate(nyc_wr):.2f}%")
+
+        asia_wr = self.win_rate(asia)
+        if asia_wr is None:
+            print("Win rate on Asia session: No trades")
+        else:
+            print(f"Win rate on Asia session is: {self.win_rate(asia_wr):.2f}%")
 
 
-    def most_trader_pair(self):
+    def most_traded_pair(self):
         pairs = {}
         for trade in self.trades:
             if trade.pair in pairs:
@@ -189,12 +234,15 @@ class Statistics(): #later do this class using NumPy
             if trade.pair not in pairs:
                 pairs[trade.pair] = 1
 
-        #for pair, value in pairs.items():
-        #        
+        highest_count = 0
+        most_traded = ""
+        for pair, value in pairs.items():
+               if value > highest_count:
+                   highest_count = value
+                   most_traded = pair
 
-                
-        #print(f"most trader pairs is: {}")
-        pass
+        return most_traded
+
     def max_losing_streak(self):
         pass
 
@@ -203,6 +251,7 @@ class Statistics(): #later do this class using NumPy
 
 
     def show_statistics(self):
+        print("Debug")
         print(f"Amount of trades: {self.trade_count()}")
         print(f"\nWin rate: {self.win_rate(self.trades):.2f}%")
         print(f"\nAverage RR: {self.average_rr()}")
@@ -212,3 +261,11 @@ class Statistics(): #later do this class using NumPy
 
         print(f"\n========Market Condition========")
         self.market_condition_wrs()
+
+        print(f"\n========Win Rate by Session========")
+        self.win_rate_by_session()
+
+        print(f"\n========Long vs Short Win Ratio========")
+        self.long_vs_short_wr()
+
+        print(f"Most traded pair is: {self.most_traded_pair()}")
