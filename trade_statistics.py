@@ -244,11 +244,35 @@ class Statistics(): #later do this class using NumPy
         return most_traded
 
     def max_losing_streak(self):
-        pass
+        l_streak = 0
+        max_l_streak = 0 
+        for trade in self.trades:
 
+            if trade.result == "W":
+                l_streak = 0
+
+            elif trade.result == "L":
+                l_streak += 1
+
+                if l_streak > max_l_streak:
+                    max_l_streak = l_streak
+
+        return max_l_streak
     def max_winning_streak(self):
-        pass 
+        w_streak = 0
+        max_w_streak = 0
+        for trade in self.trades:
 
+            if trade.result == "L":
+                w_streak = 0
+
+            elif trade.result == "W":
+                w_streak += 1
+
+                if w_streak > max_w_streak:
+                    max_w_streak = w_streak
+
+        return max_w_streak
 
     def show_statistics(self):
         print("Debug")
@@ -269,3 +293,6 @@ class Statistics(): #later do this class using NumPy
         self.long_vs_short_wr()
 
         print(f"Most traded pair is: {self.most_traded_pair()}")
+
+        print(f"Biggest win streak: {self.max_winning_streak()}")
+        print(f"Biggest lose streak: {self.max_losing_streak()}")

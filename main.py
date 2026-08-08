@@ -10,12 +10,6 @@ if __name__ == "__main__":
 
 # TODO
 
-
-#Long vs Short WR
-#Most traded pair
-#Win Rate by Session
-#Max losing streak
-#Max winning streak
 # Edit trade
 
 
@@ -28,8 +22,6 @@ if __name__ == "__main__":
 
 
 # later for statistics
-#Long vs Short WR
-#London vs NYC vs Asia
 #Trades per day/week/month
 #Expectancy
 #Profit Factor (gdy dodasz realized R)
