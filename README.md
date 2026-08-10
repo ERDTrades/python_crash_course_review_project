@@ -21,4 +21,3 @@ The project focuses on applying Python fundamentals, object-oriented programming
     * Matplotlib 
     * Plotly
     * requests
-
