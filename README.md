@@ -22,14 +22,3 @@ The project focuses on applying Python fundamentals, object-oriented programming
     * Plotly
     * requests
 
-
-### Short description:
-- **main.py** – application entry point, menu, user interaction and module coordination.
-- **trade.py** – defines the Trade class and stores information about a single trade.
-- **journal.py** – manages the collection of trades.
-- **storage.py** – saves and loads journal data from JSON files.
-- **statistics.py** – calculates trade statistics.
-- **api.py** – retrieves external market data.
-- **plot_matplotlib.py** – generates static charts.
-- **plot_plotly.py** – generates interactive charts.
-- **tests.py** – contains tests for the application's core functionality.
