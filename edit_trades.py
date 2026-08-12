@@ -2,11 +2,11 @@ from journal import Journal
 from trade_statistics import Statistics
 from trade_input import guide
 
-journal= Journal()
+journal = Journal()
 
 stats = Statistics(journal.trades)
 
-def edit_trade(journal, trades, stats):
+def edit_trade(journal, stats):
     if (input("Do you want to see the journal? Y/N: ")
     .upper().strip()== "Y"
     ):
@@ -77,39 +77,9 @@ def edit_trade(journal, trades, stats):
     else:
         print("Please enter correct parameter name")
 
+    print("\nChange preview")
+    print(f"Parameter: {parameter}")
+    print(f"\nNew value: {new_value})")
 
-# show the change
-# confirm
-# if Y
-# change and save
-
-
-
-#edit trade skeleton
-
-#   show change & ask for confirmation
-
-# if confirmed
-#   change trade object
-
-#convert trade object to dict/json
-
-# save changes
-
-# do that to every editable paremeter without id
-
-
-# Pipeline
-# menu
-# edit trade
-# choose certain trade by ID
-# find object trade with ID
-# display that trade
-# ask what do you want to change
-# decide what attribute of trade object to change
-# input change
-# validation 
-# ask Change Confirmation -> input Y/N
-# change trade object
-# to JSON
-# save
+    if input("Confirm change Y/N: ").strip().upper() == "Y":
+        journal.save_to_json()
