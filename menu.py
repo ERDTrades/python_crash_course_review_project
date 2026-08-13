@@ -23,10 +23,6 @@ def show_menu():
         "\n5. Show Statistics"
     )
 
-def handle_option(option, journal):
-    """Handle user's menu option."""#for future
-    # later - transfer opinion making from menu loop here
-    pass
 def menu_loop():
     """Main menu loop"""
     while True:

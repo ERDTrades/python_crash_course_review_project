@@ -8,6 +8,7 @@ class Journal:
 
     def __init__(self):
         self.trades = []
+        self.load_from_json()
 
     def add_trade(self, trade):
         """"Adds trade to the journal"""

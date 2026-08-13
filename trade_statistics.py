@@ -20,6 +20,24 @@ class Statistics(): #later do this class using NumPy
         win_rate = wins / len(trades) * 100
 
         return win_rate
+
+    def cumulative_winrate(self, trades):
+        """Function built for matplotlib"""
+        y = []
+
+        current_w = 0
+        processed_trades = 0
+
+        for trade in trades:
+            if trade.result == "BE":
+                continue
+            
+            processed_trades += 1
+            if trade.result == "W":
+                current_w += 1
+            y.append(round(current_w / processed_trades * 100, 2))
+
+        return y
     
     def average_rr(self): 
         rr_mean = [trade.rr for trade in self.trades]
