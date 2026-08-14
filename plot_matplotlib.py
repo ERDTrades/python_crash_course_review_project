@@ -32,15 +32,47 @@ plt.show()
 
 
 
+x = ["W", "L", "BE"]
+y = []
+
+w = 0
+l = 0
+be = 0
+
+for trade in journal.trades:
+    if trade.result == "W":
+        w += 1
+    elif trade.result == "L":
+        l += 1
+    elif trade.result == "BE":
+        be += 1
+
+y.append(w)
+y.append(l)
+y.append(be)
 
 
+fig, ax = plt.subplots()
+
+bars= ax.bar(x, y,
+       color="darkblue",
+       edgecolor="black",
+       alpha=0.8,
+       )
+
+ax.bar_label(
+    bars,
+    padding=3,
+    fontweight="bold"
+)
 
 
+ax.set_xlabel("outcome")
+ax.set_ylabel("trade count")
 
-# Is edge getting better? -> line graph, X - trade ID ,
-# Y - winrate (use winrate function prolly)
+plt.show()
 
-# W, BE, L ->  bar graph simple x,y,z   x -> W BE L y -> trade_count
+
 
 # RR graph -> straight line chart. showing X -> ID Y-> Trade count
 # basically calculation if rr got better or worse after taking X amount 
@@ -62,3 +94,5 @@ plt.show()
 #plt.ylabel(...)
 #plt.grid(True)
 #plt.show()
+
+# And lastly ofc make a option in menu py to show matplot
