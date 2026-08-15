@@ -7,6 +7,8 @@ journal = Journal()
 
 stats = Statistics(journal.trades)
 
+
+
 x = []
 y = stats.cumulative_winrate(journal.trades)
 
@@ -30,6 +32,7 @@ plt.show()
 
 
 
+# W/L/BE -> trade count graph
 
 
 x = ["W", "L", "BE"]
@@ -74,25 +77,31 @@ plt.show()
 
 
 
-# RR graph -> straight line chart. showing X -> ID Y-> Trade count
-# basically calculation if rr got better or worse after taking X amount 
-# of trades
+# RR graph
 
 
-#most common session
-# bar graph -> above the bar -> wr%
+x = []
+y = []
 
-# most common direction
-# 2 bars -. long/short
-# also show wr% above 
+for trade in journal.trades:
+    y.append(trade.rr)
 
-#skeleton
-#plt.figure()
-#plt.plot(x, y)
-#plt.title(...)
-#plt.xlabel(...)
-#plt.ylabel(...)
-#plt.grid(True)
-#plt.show()
+for trade in journal.trades:
+    x.append(trade.id)
 
-# And lastly ofc make a option in menu py to show matplot
+
+fig, ax = plt.subplots()
+
+ax.plot(x, y,
+        color="darkblue",
+        linewidth=1,
+        label="W"
+)
+
+
+ax.set_title(f"Average rr: {stats.average_rr()}")
+ax.set_xlabel("Trade ID")
+ax.set_ylabel("rr")
+
+plt.show()
+

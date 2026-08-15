@@ -43,7 +43,7 @@ class Statistics(): #later do this class using NumPy
         rr_mean = [trade.rr for trade in self.trades]
         count_sum = sum(rr_mean)
         final = count_sum / len(rr_mean)
-        return final
+        return f"{final:.2f}"
 
     def average_win_rr(self):
         awr = []
@@ -202,13 +202,13 @@ class Statistics(): #later do this class using NumPy
         if long_wr is None:
             print("Win rate on long positions: No trades")
         else:
-            print(f"Win rate on long positions: {self.win_rate(long_wr):.2f}%")
+            print(f"Win rate on long positions: {long_wr:.2f}%")
 
         short_wr = self.win_rate(short)
         if short_wr is None:
             print("Win rate on short positions: No trades")
         else:
-            print(f"Win rate on short positions: {self.win_rate(short_wr):.2f}%")
+            print(f"Win rate on short positions: {short_wr:.2f}%")
 
     def win_rate_by_session(self):
         london = []
@@ -228,19 +228,19 @@ class Statistics(): #later do this class using NumPy
         if london_wr is None:
             print("Win rate on london session: No trades")
         else:
-            print(f"Win rate on London session is: {self.win_rate(london_wr):.2f}%")
+            print(f"Win rate on London session is: {london_wr:.2f}%")
 
         nyc_wr = self.win_rate(nyc)
         if nyc_wr is None:
             print("Win rate on Nyc session: No trades")
         else:
-            print(f"Win rate on NYC session is: {self.win_rate(nyc_wr):.2f}%")
+            print(f"Win rate on NYC session is: {nyc_wr:.2f}%")
 
         asia_wr = self.win_rate(asia)
         if asia_wr is None:
             print("Win rate on Asia session: No trades")
         else:
-            print(f"Win rate on Asia session is: {self.win_rate(asia_wr):.2f}%")
+            print(f"Win rate on Asia session is: {asia_wr:.2f}%")
 
 
     def most_traded_pair(self):
@@ -258,7 +258,7 @@ class Statistics(): #later do this class using NumPy
                if value > highest_count:
                    highest_count = value
                    most_traded = pair
-
+        
         return most_traded
 
     def max_losing_streak(self):
@@ -293,7 +293,6 @@ class Statistics(): #later do this class using NumPy
         return max_w_streak
 
     def show_statistics(self):
-        print("Debug")
         print(f"Amount of trades: {self.trade_count()}")
         print(f"\nWin rate: {self.win_rate(self.trades):.2f}%")
         print(f"\nAverage RR: {self.average_rr()}")
