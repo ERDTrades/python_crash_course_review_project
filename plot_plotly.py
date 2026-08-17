@@ -108,7 +108,7 @@ fig.show()
 # will represent every id value from json
 # basically an outcome from statistics
 
-
+# labels= is literally what i need in hover.
 
 
 # Plotly structure

@@ -1,23 +1,33 @@
-#Python Crash Course Review Project
-##-Trading Journal Manager-
-###Goal
-Build one complete Python application that reinforces the majority of concepts learned in Python Crash Course.
-The project focuses on applying Python fundamentals, object-oriented programming, file handling, JSON storage, data analysis and visualization in one practical application.
+# Trading Journal Analytics 
 
-##Features
-    * Object-Oriented Programming 
-    * File Handling 
-    * JSON Database 
-    * Exception Handling 
-    * Data Analysis 
-    * Matplotlib Charts 
-    * Multiple Python Modules 
-    * Clean Project Structure 
+### My second project
 
-##Technologies
-    * Python 
-    * JSON 
-    * pathlib 
-    * Matplotlib 
-    * Plotly
-    * requests
+A python project that started as a learning exercise after completing "Python Crash course" and after time it went way beyond things in the book.
+
+## Features
+
+- Trade journal stored in JSON
+- Cumulative winrate chart in Plotly
+- W/L/BE distribution bar chart
+- Interactive dark-themed dashboards
+- Trade statistics and performance tracking
+
+## Stack
+- Python
+- Plotly
+- Matplotlib
+- JSON
+- OOP
+- Numpy & Pandas *Planned*
+
+The goal is to build a professional trading analytics platform while progressively learning Python, Statistics, data visualization and quantative finance
+
+## Progress
+- v0.1 - JSON trade storage + user friendly guide
+- v0.2 - Statistics + Visualization (matplotlib&plotly) -> In progress
+
+
+
+### Note from the author
+I started learning python on 15.08.2026 and this is actually my first project since since previous one was a small exercise built after completing API chapter of "Python Crash Course*.
+Im also not a native english speaker so hopefully everything in the project is clear. :)
