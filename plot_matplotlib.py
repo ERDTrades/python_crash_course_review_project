@@ -18,9 +18,6 @@ for trade in journal.trades:
 
     x.append(trade.id)
 
-print(len(x))
-print(len(y))
-
 fig, ax = plt.subplots()
 ax.plot(x, y)
 
