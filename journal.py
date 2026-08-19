@@ -2,7 +2,7 @@ from pathlib import Path
 from trade import Trade
 import json
 from datetime import datetime
-
+import pandas as pd
 
 class Journal:
 
@@ -15,13 +15,13 @@ class Journal:
         trade.id = len(self.trades) + 1
         self.trades.append(trade)
         
-    def display_trades(self):
+    def display_trades(self): #later add :.2f formatting
         """Displays trades"""
-        print("Liczba transakcji: ", len(self.trades))
-        for trade in self.trades:
-            print(trade)
+        print(f"\n\n\nLiczba transakcji: {len(self.trades)}\n")
+        df = pd.DataFrame([trade.to_dict() for trade in self.trades])
+        return  df
 
-    def trade_count(self): # delete 
+    def trade_count(self):
         """"Count trades"""
         return f"There are {len(self.trades)} trades in your journal"
 

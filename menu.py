@@ -45,9 +45,7 @@ def menu_loop():
                             break
                         
         elif option == "2":
-            if (input("Do you want to see updated journal? (Y/N): ")
-            .strip().upper() == "Y"):
-                journal.display_trades()
+            print(journal.display_trades())
 
         elif option == "3":
              if (input("Do you want to search trade by id? (Y/N): ")

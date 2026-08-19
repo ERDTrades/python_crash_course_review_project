@@ -44,7 +44,7 @@ class Trade:
 
     def to_dict(self,):
         
-        documentation = { # Didn't added entry/exit cus its useless here tbh
+        documentation = {
             "id": self.id,
             "was_valid": self.was_valid,
             "date": self.date.strftime("%Y-%m-%d"),

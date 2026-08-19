@@ -1,6 +1,8 @@
 import plotly.express as px
 from trade_statistics import Statistics
 from journal import Journal
+import pandas as pd
+
 
 journal = Journal()
 
@@ -15,6 +17,8 @@ for trade in journal.trades:
         continue
 
     x.append(trade.id)
+
+
 
 labels = {
         "x": "Trade ID ",
@@ -45,6 +49,8 @@ fig.update_xaxes(
 
 
 fig.show()
+
+
 
 
 
@@ -99,20 +105,3 @@ fig.update_xaxes(
 fig.show()
 
 
-
-
-
-## UPDATED TODO
-# Make hover data
-# on line graph each marker after hovering - > basically each dot
-# will represent every id value from json
-# basically an outcome from statistics
-
-# labels= is literally what i need in hover.
-
-
-# Plotly structure
-
-# basically 1:1 matplotlib -> plotly 
-# only make it more appealing with colors, hovers etc.
-# rest is history
