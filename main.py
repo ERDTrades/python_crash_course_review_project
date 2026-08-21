@@ -10,8 +10,6 @@ if __name__ == "__main__":
 
 # TODO
 
-# Make entry and exit :.2f only while showing display_trades
-
 # Polish the display_trade dataframe - make it clearer, nicer
 
 # Add a meaningfull hover to the plotly + 

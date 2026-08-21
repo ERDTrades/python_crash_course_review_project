@@ -4,6 +4,13 @@ import json
 from datetime import datetime
 import pandas as pd
 
+from rich.table import Table
+from rich.console import Console
+from rich import box
+
+console = Console()
+table = Table()
+
 class Journal:
 
     def __init__(self):
@@ -15,10 +22,13 @@ class Journal:
         trade.id = len(self.trades) + 1
         self.trades.append(trade)
         
-    def display_trades(self): #later add :.2f formatting
+    def display_trades(self): #finish polishing with rich
         """Displays trades"""
-        print(f"\n\n\nLiczba transakcji: {len(self.trades)}\n")
+        console.print(f"\n\n\nLiczba transakcji: {len(self.trades)}\n",
+                        style="dark_blue"
+                      )
         df = pd.DataFrame([trade.to_dict() for trade in self.trades])
+
         return  df
 
     def trade_count(self):

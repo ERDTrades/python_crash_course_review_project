@@ -58,7 +58,7 @@ def create_trade():
                                print("Please Follow the Guidelines")
 
 
-                rr_input = float(input("Risk/Reward: "))
+                rr_input = round(float(input("Risk/Reward: ")), 2)
 
                 while True:
                        result_input = input("Result: ").strip().upper()
@@ -69,8 +69,8 @@ def create_trade():
                               break
                        else:
                               print("Please Follow the Guidelines")
-                entry_input = float(input("Entry: "))
-                exit_input = float(input("Exit: "))
+                entry_input = round(float(input("Entry: ")), 2)
+                exit_input = round(float(input("Exit: ")), 2)
 
                 while True:
                      notes_input = input("Notes: ")

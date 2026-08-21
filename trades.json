@@ -10,7 +10,7 @@
         "rr": 2.43,
         "result": "W",
         "entry": 13433.12,
-        "exit": 13500.00,
+        "exit": 13500.0,
         "notes": "OK"
     },
     {
@@ -21,10 +21,10 @@
         "pair": "XAUUSD",
         "direction": "LONG",
         "market_condition": "trending",
-        "rr": 1.80,
+        "rr": 1.8,
         "result": "W",
-        "entry": 3412.50,
-        "exit": 3428.90,
+        "entry": 3412.5,
+        "exit": 3428.9,
         "notes": "Clean breakout."
     },
     {
@@ -35,10 +35,10 @@
         "pair": "NAS100",
         "direction": "SHORT",
         "market_condition": "high-volume",
-        "rr": 0.90,
+        "rr": 0.9,
         "result": "L",
-        "entry": 13520.30,
-        "exit": 13545.80,
+        "entry": 13520.3,
+        "exit": 13545.8,
         "notes": "Stopped out."
     },
     {
@@ -49,10 +49,10 @@
         "pair": "EURUSD",
         "direction": "LONG",
         "market_condition": "ranging",
-        "rr": 1.20,
+        "rr": 1.2,
         "result": "BE",
-        "entry": 1.1045,
-        "exit": 1.1045,
+        "entry": 1.1,
+        "exit": 1.1,
         "notes": "Moved to BE."
     },
     {
@@ -63,10 +63,10 @@
         "pair": "UK100",
         "direction": "SHORT",
         "market_condition": "counter-trending",
-        "rr": 2.10,
+        "rr": 2.1,
         "result": "W",
-        "entry": 8920.10,
-        "exit": 8878.40,
+        "entry": 8920.1,
+        "exit": 8878.4,
         "notes": "Countertrend worked."
     },
     {
@@ -77,10 +77,10 @@
         "pair": "XAUUSD",
         "direction": "SHORT",
         "market_condition": "trending(lower-tf)",
-        "rr": 3.00,
+        "rr": 3.0,
         "result": "W",
-        "entry": 3435.20,
-        "exit": 3404.10,
+        "entry": 3435.2,
+        "exit": 3404.1,
         "notes": "Strong continuation."
     },
     {
@@ -91,10 +91,10 @@
         "pair": "EURUSD",
         "direction": "LONG",
         "market_condition": "low-volume",
-        "rr": 1.00,
+        "rr": 1.0,
         "result": "L",
-        "entry": 1.1062,
-        "exit": 1.1048,
+        "entry": 1.11,
+        "exit": 1.1,
         "notes": "Weak session."
     },
     {
@@ -105,10 +105,10 @@
         "pair": "NAS100",
         "direction": "LONG",
         "market_condition": "trending",
-        "rr": 2.70,
+        "rr": 2.7,
         "result": "W",
-        "entry": 13600.40,
-        "exit": 13688.20,
+        "entry": 13600.4,
+        "exit": 13688.2,
         "notes": "Trend held."
     },
     {
@@ -119,10 +119,10 @@
         "pair": "UK100",
         "direction": "SHORT",
         "market_condition": "ranging",
-        "rr": 1.40,
+        "rr": 1.4,
         "result": "L",
-        "entry": 8948.50,
-        "exit": 8963.80,
+        "entry": 8948.5,
+        "exit": 8963.8,
         "notes": "Forced entry."
     },
     {
@@ -133,10 +133,10 @@
         "pair": "XAUUSD",
         "direction": "LONG",
         "market_condition": "counter-trending(lower-tf)",
-        "rr": 2.20,
+        "rr": 2.2,
         "result": "W",
-        "entry": 3398.30,
-        "exit": 3421.50,
+        "entry": 3398.3,
+        "exit": 3421.5,
         "notes": "Good reversal."
     },
     {
@@ -147,10 +147,10 @@
         "pair": "EURUSD",
         "direction": "SHORT",
         "market_condition": "high-volume",
-        "rr": 1.60,
+        "rr": 1.6,
         "result": "W",
-        "entry": 1.1098,
-        "exit": 1.1067,
+        "entry": 1.11,
+        "exit": 1.11,
         "notes": "News move."
     },
     {
@@ -161,10 +161,10 @@
         "pair": "NAS100",
         "direction": "LONG",
         "market_condition": "trending",
-        "rr": 2.00,
+        "rr": 2.0,
         "result": "BE",
-        "entry": 13705.60,
-        "exit": 13705.60,
+        "entry": 13705.6,
+        "exit": 13705.6,
         "notes": "Protected capital."
     },
     {
@@ -175,10 +175,10 @@
         "pair": "UK100",
         "direction": "LONG",
         "market_condition": "low-volume",
-        "rr": 0.80,
+        "rr": 0.8,
         "result": "L",
-        "entry": 8990.30,
-        "exit": 8978.90,
+        "entry": 8990.3,
+        "exit": 8978.9,
         "notes": "Low conviction."
     },
     {
@@ -189,10 +189,10 @@
         "pair": "XAUUSD",
         "direction": "SHORT",
         "market_condition": "trending(lower-tf)",
-        "rr": 3.50,
+        "rr": 3.5,
         "result": "W",
-        "entry": 3450.80,
-        "exit": 3402.10,
+        "entry": 3450.8,
+        "exit": 3402.1,
         "notes": "Best trade this week."
     },
     {
@@ -203,10 +203,10 @@
         "pair": "EURUSD",
         "direction": "LONG",
         "market_condition": "ranging",
-        "rr": 1.30,
+        "rr": 1.3,
         "result": "L",
-        "entry": 1.1120,
-        "exit": 1.1102,
+        "entry": 1.11,
+        "exit": 1.11,
         "notes": "Range failed."
     },
     {
@@ -217,10 +217,10 @@
         "pair": "NAS100",
         "direction": "SHORT",
         "market_condition": "counter-trending",
-        "rr": 2.60,
+        "rr": 2.6,
         "result": "W",
-        "entry": 13810.90,
-        "exit": 13735.20,
+        "entry": 13810.9,
+        "exit": 13735.2,
         "notes": "Sharp pullback."
     },
     {
@@ -231,10 +231,10 @@
         "pair": "UK100",
         "direction": "SHORT",
         "market_condition": "high-volume",
-        "rr": 1.70,
+        "rr": 1.7,
         "result": "W",
-        "entry": 9015.50,
-        "exit": 8986.20,
+        "entry": 9015.5,
+        "exit": 8986.2,
         "notes": "Fast execution."
     },
     {
@@ -245,10 +245,10 @@
         "pair": "XAUUSD",
         "direction": "LONG",
         "market_condition": "trending",
-        "rr": 2.90,
+        "rr": 2.9,
         "result": "W",
-        "entry": 3387.60,
-        "exit": 3426.80,
+        "entry": 3387.6,
+        "exit": 3426.8,
         "notes": "Trend continuation."
     },
     {
@@ -259,10 +259,10 @@
         "pair": "EURUSD",
         "direction": "SHORT",
         "market_condition": "low-volume",
-        "rr": 1.10,
+        "rr": 1.1,
         "result": "BE",
-        "entry": 1.1081,
-        "exit": 1.1081,
+        "entry": 1.11,
+        "exit": 1.11,
         "notes": "No momentum."
     },
     {
@@ -273,10 +273,10 @@
         "pair": "NAS100",
         "direction": "LONG",
         "market_condition": "trending",
-        "rr": 2.40,
+        "rr": 2.4,
         "result": "W",
-        "entry": 13890.20,
-        "exit": 13966.70,
+        "entry": 13890.2,
+        "exit": 13966.7,
         "notes": "Good trend."
     },
     {
@@ -287,10 +287,10 @@
         "pair": "UK100",
         "direction": "LONG",
         "market_condition": "counter-trending(lower-tf)",
-        "rr": 0.70,
+        "rr": 0.7,
         "result": "L",
-        "entry": 9042.10,
-        "exit": 9029.80,
+        "entry": 9042.1,
+        "exit": 9029.8,
         "notes": "Bad read."
     },
     {
@@ -301,10 +301,10 @@
         "pair": "XAUUSD",
         "direction": "SHORT",
         "market_condition": "high-volume",
-        "rr": 3.20,
+        "rr": 3.2,
         "result": "W",
-        "entry": 3465.30,
-        "exit": 3418.50,
+        "entry": 3465.3,
+        "exit": 3418.5,
         "notes": "High volatility."
     },
     {
@@ -315,10 +315,10 @@
         "pair": "EURUSD",
         "direction": "LONG",
         "market_condition": "trending",
-        "rr": 1.90,
+        "rr": 1.9,
         "result": "W",
-        "entry": 1.1154,
-        "exit": 1.1193,
+        "entry": 1.12,
+        "exit": 1.12,
         "notes": "Solid execution."
     },
     {
@@ -329,10 +329,10 @@
         "pair": "NAS100",
         "direction": "SHORT",
         "market_condition": "ranging",
-        "rr": 1.50,
+        "rr": 1.5,
         "result": "L",
-        "entry": 14012.60,
-        "exit": 14045.30,
+        "entry": 14012.6,
+        "exit": 14045.3,
         "notes": "Range breakout failed."
     },
     {
@@ -343,10 +343,10 @@
         "pair": "UK100",
         "direction": "SHORT",
         "market_condition": "low-volume",
-        "rr": 1.00,
+        "rr": 1.0,
         "result": "BE",
-        "entry": 9078.90,
-        "exit": 9078.90,
+        "entry": 9078.9,
+        "exit": 9078.9,
         "notes": "Flat session."
     },
     {
@@ -357,10 +357,24 @@
         "pair": "XAUUSD",
         "direction": "LONG",
         "market_condition": "trending(lower-tf)",
-        "rr": 2.80,
+        "rr": 2.8,
         "result": "W",
-        "entry": 3408.20,
-        "exit": 3447.90,
+        "entry": 3408.2,
+        "exit": 3447.9,
         "notes": "Nice finish."
+    },
+    {
+        "id": 27,
+        "was_valid": "Y",
+        "date": "2026-08-20",
+        "session": "LONDON",
+        "pair": "XAUUSD",
+        "direction": "LONG",
+        "market_condition": "trending",
+        "rr": 3.22,
+        "result": "W",
+        "entry": 3211.34,
+        "exit": 3222.0,
+        "notes": "ok"
     }
 ]
