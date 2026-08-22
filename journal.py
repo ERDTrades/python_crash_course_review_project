@@ -4,12 +4,12 @@ import json
 from datetime import datetime
 import pandas as pd
 
+from rich.text import Text
 from rich.table import Table
 from rich.console import Console
 from rich import box
 
 console = Console()
-table = Table()
 
 class Journal:
 
@@ -29,7 +29,47 @@ class Journal:
                       )
         df = pd.DataFrame([trade.to_dict() for trade in self.trades])
 
-        return  df
+        table = Table(box=box.DOUBLE_EDGE, title="Trading Journal",
+                      title_style="bold blue",
+                      style="dark_blue")
+        table.add_column("ID", justify="center", style="dark_blue")
+        table.add_column("Was Valid?", justify="center", style="dark_blue")
+        table.add_column("Date", justify="center", style="dark_blue")
+        table.add_column("Session", justify="center", style="dark_blue")
+        table.add_column("Pair", justify="center", style="dark_blue")
+        table.add_column("Direction", justify="center", style="dark_blue")
+        table.add_column("market_condition", justify="center", style="dark_blue")
+        table.add_column("rr", justify="center", style="dark_blue")
+        table.add_column("result", justify="center")
+        table.add_column("entry", justify="center", style="dark_blue")
+        table.add_column("exit", justify="center", style="dark_blue")
+        table.add_column("notes", justify="center", style="dark_blue")
+
+        for row in df.itertuples(index=False):
+            if row.result == "W":
+                result = Text("W", style="green")
+            elif row.result == "L":
+                result = Text("L", style="red")
+            else: 
+                result = Text("BE", style="blue")
+
+            table.add_row(
+                str(row.id),
+                row.was_valid,
+                row.date,
+                row.session,
+                row.pair,
+                row.direction,
+                row.market_condition,
+                f"{row.rr:.2f}",
+                result,
+                f"{row.entry:.2f}",
+                f"{row.exit:.2f}",
+                row.notes
+            )
+
+        console.print(table)
+
 
     def trade_count(self):
         """"Count trades"""

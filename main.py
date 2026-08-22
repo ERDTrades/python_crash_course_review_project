@@ -10,8 +10,6 @@ if __name__ == "__main__":
 
 # TODO
 
-# Polish the display_trade dataframe - make it clearer, nicer
-
 # Add a meaningfull hover to the plotly + 
 # matplotlib overall statistics (visualization)
 
