@@ -3,6 +3,9 @@ from trade_input import create_trade
 from trade_input import guide
 from trade_statistics import Statistics
 
+from plot_matplotlib import cumulative_wr, wlbe_bar_chart, rr_graph
+from plot_plotly import cumulative_winrate_plotly, wlbe_graph_plotly
+
 journal = Journal()
 
 
@@ -21,6 +24,7 @@ def show_menu():
         "\n3. Search trade by ID"
         "\n4. Delete Trade by ID"
         "\n5. Show Statistics"
+        "\n6. Show visualization menu"
     )
 
 def menu_loop():
@@ -28,7 +32,7 @@ def menu_loop():
     while True:
         if input("Show menu (Y/N): ").strip().upper() == "Y":
             show_menu()
-        option = input("Choose an option (1-5): ").strip()
+        option = input("Choose an option (0-6): ").strip()
 
         if option == "1":
             if input("\nDo you want to see Users Guide"
@@ -75,7 +79,37 @@ def menu_loop():
 
         elif option == "5":
              stats.show_statistics()
-                       
+
+        elif option ==  "6":
+            print("----------Visualization menu----------"
+                    "\nCumulative winrate graph - input A: "
+                    "\nW/L/BE bar chart - input B: "
+                    "\nRR Graph - input C: "
+                    "\nShow All - input D:")
+
+            choice = input("Choice: ")
+
+            if choice.upper().strip() == "A":
+                 cumulative_wr(journal)
+                 cumulative_winrate_plotly(journal)
+
+            elif choice.upper().strip() == "B":
+                 wlbe_bar_chart(journal)
+                 wlbe_graph_plotly(journal)
+
+            elif choice.upper().strip() == "C":
+                 rr_graph(journal)
+
+            elif choice.upper().strip() == "D":
+                cumulative_wr(journal)
+                cumulative_winrate_plotly(journal)
+                wlbe_bar_chart(journal)
+                wlbe_graph_plotly(journal)
+                rr_graph(journal)
+                
+            else:
+                 print("Please enter correct input")
+
         elif option == "0":
                 break
 
