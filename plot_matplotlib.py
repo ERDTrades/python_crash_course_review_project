@@ -19,7 +19,12 @@ def cumulative_wr(journal):
         x.append(trade.id)
 
     fig, ax = plt.subplots()
-    ax.plot(x, y)
+
+    ax.plot(
+            x, y,
+            color="darkblue",
+            linewidth=1.5
+            )
 
     ax.set_title("Cumulative Win rate")
     ax.set_xlabel("Trade ID")

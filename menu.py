@@ -82,13 +82,16 @@ def menu_loop():
 
         elif option ==  "6":
             print("----------Visualization menu----------"
-                    "\nCumulative winrate graph - input A: "
-                    "\nW/L/BE bar chart - input B: "
-                    "\nRR Graph - input C: "
-                    "\nShow All - input D:")
+                    "\nCumulative winrate graph - input A "
+                    "\nW/L/BE bar chart - input B "
+                    "\nRR Graph - input C "
+                    "\nShow All - input D")
 
             choice = input("Choice: ")
 
+               # For now I have both plotly and matplotlib 
+               # for visualization
+               # Later -> Add dark/white theme as a choice
             if choice.upper().strip() == "A":
                  cumulative_wr(journal)
                  cumulative_winrate_plotly(journal)

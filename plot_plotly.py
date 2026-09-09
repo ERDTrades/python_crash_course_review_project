@@ -34,7 +34,7 @@ def cumulative_winrate_plotly(journal):
     )
 
     fig.update_layout(
-        font_color="#1C1FAA",
+        font_color="#4447FF",
         paper_bgcolor='black',
         plot_bgcolor='black'
     )
@@ -76,19 +76,25 @@ def wlbe_graph_plotly(journal):
     y.append(be)
 
 
+    labels = {
+            "x": "Outcome ",
+            "y": "Amount "
+        }
+
     fig = px.bar(
         x=x,
         y=y,
-        title="Cumulative winrate chart",
+        labels=labels,
+        title="Cumulative winrate chart"
     )
 
     fig.update_traces(
-        marker_color='#1C1FAA',
+        marker_color='#4447FF',
         marker_opacity=0.6
     )
 
     fig.update_layout(
-        font_color="#1C1FAA",
+        font_color="#4447FF",
         paper_bgcolor='black',
         plot_bgcolor='black'
     )
