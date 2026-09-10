@@ -24,7 +24,7 @@ class Journal:
         
     def display_trades(self): #finish polishing with rich
         """Displays trades"""
-        console.print(f"\n\n\nLiczba transakcji: {len(self.trades)}\n",
+        console.print(f"\n\n\nAmount of trades: {len(self.trades)}\n",
                         style="dark_blue"
                       )
         df = pd.DataFrame([trade.to_dict() for trade in self.trades])
@@ -38,7 +38,8 @@ class Journal:
         table.add_column("Session", justify="center", style="dark_blue")
         table.add_column("Pair", justify="center", style="dark_blue")
         table.add_column("Direction", justify="center", style="dark_blue")
-        table.add_column("market_condition", justify="center", style="dark_blue")
+        table.add_column("market_condition", justify="center",
+                          style="dark_blue")
         table.add_column("rr", justify="center", style="dark_blue")
         table.add_column("result", justify="center")
         table.add_column("entry", justify="center", style="dark_blue")

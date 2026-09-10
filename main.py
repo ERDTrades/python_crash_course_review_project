@@ -10,9 +10,6 @@ if __name__ == "__main__":
 
 # TODO
 
-# -Maybe- Convert show_statistics (only for user to see) into a dataframe
-# and make it more readable, just better.
-
 # Edit trade function
 
 # Add some more complicated statistics with Numpy + some more necessary visualizations

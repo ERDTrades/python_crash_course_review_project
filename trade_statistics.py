@@ -1,3 +1,13 @@
+import pandas as pd
+
+from rich.text import Text
+from rich.table import Table
+from rich.console import Console
+from rich import box
+
+console = Console()
+
+
 
 
 class Statistics(): #later do this class using NumPy
@@ -293,23 +303,76 @@ class Statistics(): #later do this class using NumPy
         return max_w_streak
 
     def show_statistics(self):
-        print(f"Amount of trades: {self.trade_count()}")
-        print(f"\nWin rate: {self.win_rate(self.trades):.2f}%")
-        print(f"\nAverage RR: {self.average_rr()}")
-        print(f"\nAverage Winners RR: {self.average_win_rr()}")
-        print(f"\nAverage Losses RR: {self.average_loss_rr()}")
-        print(f"\nMost common session: {self.most_common_session()}")
+        console.print(f"\n\n\nAmount of trades: {len(self.trades)}\n",
+                      style="dark_blue"
+                      )
 
-        print(f"\n========Market Condition========")
-        self.market_condition_wrs()
+        table = Table(box=box.DOUBLE_EDGE, title="Statistics",
+                      title_style="bold blue",
+                      style="dark_blue"
+                      )
 
-        print(f"\n========Win Rate by Session========")
-        self.win_rate_by_session()
+        table.add_column("Statistics", justify="center", style="dark_blue")
+        table.add_column("Value", justify="center", style="dark_blue")
+        
+        table.add_row(
+            "Win rate",
+            f"{self.win_rate(self.trades):.2f}"
+        )
 
-        print(f"\n========Long vs Short Win Ratio========")
-        self.long_vs_short_wr()
+        table.add_row(
+            "Average RR",
+            f"{self.average_rr()}"
+        )
 
-        print(f"Most traded pair is: {self.most_traded_pair()}")
+        table.add_row(
+            "Average Winners  RR",
+            f"{self.average_win_rr():.2f}"
+        )
 
-        print(f"Biggest win streak: {self.max_winning_streak()}")
-        print(f"Biggest lose streak: {self.max_losing_streak()}")
+        table.add_row(
+            "Average Losses RR",
+            f"{self.average_loss_rr():.2f}"
+        )
+
+        table.add_row(
+            "Most Common Session",
+            f"{self.most_common_session()}"
+        )
+
+        table.add_row(
+            "Market Condition",
+            f"{self.market_condition_wrs()}"
+        )
+
+        table.add_row(
+            "Win Rate by Session",
+            f"{self.long_vs_short_wr()}"
+        )
+
+        table.add_row(
+            "Long vs Short Win Ratio",
+            f"{self.long_vs_short_wr()}"
+        )
+
+        table.add_row(
+            "Most Traded pair",
+            f"{self.most_traded_pair()}"
+        )
+
+        table.add_row(
+            "Biggest wining streak",
+            f"{self.max_winning_streak()}"
+        )
+
+        table.add_row(
+            "Biggest losing streak",
+            f"{self.max_losing_streak()}"
+        )
+
+        return console.print(table)
+
+        # In the future -> Replace those prints above the table
+        # with a proper dataframe (second one for more detailed stats)
+        # or just make 1 bigger
+        # OR just leave it as it is, only changing colors with console prints
