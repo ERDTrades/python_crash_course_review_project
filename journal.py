@@ -91,6 +91,23 @@ class Journal:
             return True
         else:
             return False
+
+    def edit_trade(self):
+
+
+
+        #use load_from_json to load everything Input -> Choose trade id
+        #  Find that trade object with that id ask with input
+        #  -> What do you want to change User -> 
+        # chooses a specific parameter
+        #  (from the available one (basically parameters from journal) 
+        # after chosing that -> User inputs change after that input
+        #  -> save_to_json function TO CHANGE WHOLE THING after cchanging
+        #  -> Print something like "Change saved" 
+        # Input: Do you want to see the updated journal? Y\N 
+        # If y show the updated journal... If no just do nothing 
+        # -> loop will automatically start again
+        pass
     
     def save_to_json(self):
         path = Path("trades.json")

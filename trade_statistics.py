@@ -372,7 +372,7 @@ class Statistics(): #later do this class using NumPy
 
         return console.print(table)
 
-        # In the future -> Replace those prints above the table
+        # TODO In the future -> Replace those prints above the table
         # with a proper dataframe (second one for more detailed stats)
         # or just make 1 bigger
         # OR just leave it as it is, only changing colors with console prints

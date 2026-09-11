@@ -12,6 +12,8 @@ if __name__ == "__main__":
 
 # Edit trade function
 
+# test.py with ACTUAL tests -> pytest
+
 # Add some more complicated statistics with Numpy + some more necessary visualizations
 # ( Less is more )
 
