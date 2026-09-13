@@ -92,21 +92,25 @@ class Journal:
         else:
             return False
 
-    def edit_trade(self):
+    def edit_trade(self, trade_id):
 
+        trade = self.id_find(trade_id)
 
+        if not trade:
+            
+           return False
+        
+        parameter = input("What do you want to change?").strip().lower()
 
-        #use load_from_json to load everything Input -> Choose trade id
-        #  Find that trade object with that id ask with input
-        #  -> What do you want to change User -> 
-        # chooses a specific parameter
-        #  (from the available one (basically parameters from journal) 
-        # after chosing that -> User inputs change after that input
-        #  -> save_to_json function TO CHANGE WHOLE THING after cchanging
-        #  -> Print something like "Change saved" 
-        # Input: Do you want to see the updated journal? Y\N 
-        # If y show the updated journal... If no just do nothing 
-        # -> loop will automatically start again
+        new_value = input("Enter new value").strip()
+
+        if parameter == "id":
+            print("You can not change ID")
+
+        elif parameter == "was_valid":
+            trade.rr = new_value
+            
+        # dokonczyc -> juz wiesz co robic
         pass
     
     def save_to_json(self):

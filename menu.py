@@ -23,8 +23,9 @@ def show_menu():
         "\n2. View Journal"
         "\n3. Search trade by ID"
         "\n4. Delete Trade by ID"
-        "\n5. Show Statistics"
-        "\n6. Show visualization menu"
+        "\n5. Edit Trade"
+        "\n6. Show Statistics"
+        "\n7. Show visualization menu"
     )
 
 def menu_loop():
@@ -78,9 +79,34 @@ def menu_loop():
                        print("Trade not found")
 
         elif option == "5":
+             if (input("Do you want to see a parameter guidelines? (Y/N)")
+                    .strip().upper() == "Y"
+                    ):
+                  print("\nAvailable parameters:"
+                        "\nid,\t was_valid,\tdate,\tsession"
+                        "\npair,\tdirection,\tmarket_condition"
+                        "\nrr,\tresult,\t"
+                        "\nentry,\texit,\tnotes")
+               
+             
+             edt_trade = int(input("Enter Trade ID that you want to edit")
+                             .strip)
+                             
+             trade = journal.edit_trade(edt_trade)
+
+             if trade:
+                  # co zrobic kiedy jest dobre id
+               pass
+             else: 
+               print("Trade not found")
+             
+
+                  
+
+        elif option == "6":
              stats.show_statistics()
 
-        elif option ==  "6":
+        elif option ==  "7":
             print("----------Visualization menu----------"
                     "\nCumulative winrate graph - input A "
                     "\nW/L/BE bar chart - input B "
