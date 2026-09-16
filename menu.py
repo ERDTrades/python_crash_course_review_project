@@ -19,13 +19,14 @@ def show_menu():
         "\nTrading Journal"
         "\n========================"
         "\n0. Exit"
-        "\n1. Add Trade"
-        "\n2. View Journal"
-        "\n3. Search trade by ID"
-        "\n4. Delete Trade by ID"
-        "\n5. Edit Trade"
-        "\n6. Show Statistics"
-        "\n7. Show visualization menu"
+        "\n1. Parameter Guidelines (Adding/Editing trades)"
+        "\n2. Add Trade"
+        "\n3. View Journal"
+        "\n4. Search trade by ID"
+        "\n5. Delete Trade by ID"
+        "\n6. Edit Trade"
+        "\n7. Show Statistics"
+        "\n8. Show visualization menu"
     )
 
 def menu_loop():
@@ -33,13 +34,16 @@ def menu_loop():
     while True:
         if input("Show menu (Y/N): ").strip().upper() == "Y":
             show_menu()
-        option = input("Choose an option (0-6): ").strip()
+        option = input("Choose an option (0-8): ").strip()
+
 
         if option == "1":
+             guide()
+
+        elif option == "2":
             if input("\nDo you want to see Users Guide"
                 " before entering new trade? (Y/N): "
                 ).strip().upper() == "Y":
-               # Guide Section 
                 guide()
             while True:
                     trade = create_trade()
@@ -49,10 +53,10 @@ def menu_loop():
                     " Y / N: ").strip().upper() != "Y":
                             break
                         
-        elif option == "2":
+        elif option == "3":
             journal.display_trades()
 
-        elif option == "3":
+        elif option == "4":
              if (input("Do you want to search trade by id? (Y/N): ")
                  .strip().upper() == "Y"):
                   
@@ -64,7 +68,7 @@ def menu_loop():
                   else:
                        print("Trade not found.")
 
-        elif option == "4":
+        elif option == "5":
              if (input("Do you want to delete trade? (Y/N): ")
              .strip().upper() == "Y"
              ):
@@ -78,35 +82,37 @@ def menu_loop():
                   else:
                        print("Trade not found")
 
-        elif option == "5":
-             if (input("Do you want to see a parameter guidelines? (Y/N)")
+        elif option == "6":
+             if (input("Do you want to see a parameter guidelines? (Y/N): ")
                     .strip().upper() == "Y"
                     ):
                   print("\nAvailable parameters:"
-                        "\nid,\t was_valid,\tdate,\tsession"
-                        "\npair,\tdirection,\tmarket_condition"
-                        "\nrr,\tresult,\t"
-                        "\nentry,\texit,\tnotes")
+                        "\twas_valid \tdate \tsession"
+                        "\npair \tdirection \tmarket_condition"
+                        "\nrr \tresult \t"
+                        "\nentry \texit \tnotes")
                
+             try:
+               edt_trade = int(input("Enter Trade ID that you want to edit: ")
+                             .strip())
+             except ValueError:
+                  print("Please enter a valid Trade ID")
+                  continue
+
              
-             edt_trade = int(input("Enter Trade ID that you want to edit")
-                             .strip)
-                             
              trade = journal.edit_trade(edt_trade)
 
              if trade:
-                  # co zrobic kiedy jest dobre id
-               pass
-             else: 
-               print("Trade not found")
+               journal.save_to_json()
+               print("Change saved")
              
 
                   
 
-        elif option == "6":
+        elif option == "7":
              stats.show_statistics()
 
-        elif option ==  "7":
+        elif option ==  "8":
             print("----------Visualization menu----------"
                     "\nCumulative winrate graph - input A "
                     "\nW/L/BE bar chart - input B "

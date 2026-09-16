@@ -97,21 +97,188 @@ class Journal:
         trade = self.id_find(trade_id)
 
         if not trade:
-            
-           return False
+            print("Trade not found")
+            return False
         
-        parameter = input("What do you want to change?").strip().lower()
+        parameter = input("What do you want to change?: ").strip().lower()
 
-        new_value = input("Enter new value").strip()
+        if parameter not in [
+            "id",
+            "was_valid",
+            "date",
+            "session",
+            "pair",
+            "direction",
+            "market_condition",
+            "rr",
+            "result",
+            "entry",
+            "exit",
+            "notes"
+        ]:
+            print("Please enter correct parameter")
+            return False
 
-        if parameter == "id":
-            print("You can not change ID")
 
-        elif parameter == "was_valid":
-            trade.rr = new_value
+
+
+        try:
+            if parameter == "id":
+                print("You can not change ID")
+                return False
+            elif parameter == "was_valid":
+                while True:
+                    new_value = input("\nEnter new value: ").strip()
+
+                    if new_value == "N" or new_value == "Y":
+                        break
+
+                    choice = (input("\nPlease follow the guidelines"
+                            "\nIf you want to see the guidelines"
+                            " please choose 1 in main menu."
+                            "Do you want to continue? (Y/N): ")
+                            .strip().upper())
+                    
+                    if choice == "Y":
+                        continue
+                    else:
+                        return False
+                trade.was_valid = new_value
+
+
+            elif parameter == "date":
+                print("\nPlease enter date in YYYY-MM-DD format")
+                new_value = input("\nEnter new value: ").strip()
+                trade.date = datetime.strptime(new_value, "%Y-%m-%d").date()
+
+
+            elif parameter == "session":
+                while True:
+                    new_value = input("\nEnter new value: ").strip()
+
+                    if (new_value == "NYC"
+                        or new_value == "LONDON"
+                        or new_value == "ASIA"
+                    ):
+                        break
+
+                    choice = (input("\nPlease follow the guidelines"
+                            "\nIf you want to see the guidelines"
+                            " please choose 1 in main menu."
+                            "Do you want to continue? (Y/N): ")
+                            .strip().upper())
+                    
+                    if choice == "Y":
+                        continue
+                    else:
+                        return False
+                    
+                trade.session = new_value
+
+            elif parameter == "pair":
+                new_value = input("\nEnter new value: ").strip()
+                trade.pair = new_value
+
+            elif parameter == "direction":
+                while True:
+                    new_value = input("\nEnter new value: ").strip()
+
+                    if(new_value == "LONG"
+                       or new_value == "SHORT"
+                    ):
+                        break
+                    choice = (input("\nPlease follow the guidelines"
+                        "\nIf you want to see the guidelines"
+                        " please choose 1 in main menu."
+                        "Do you want to continue? (Y/N): ")
+                        .strip().upper())
+                
+                    if choice == "Y":
+                        continue
+                    else:
+                        return False
+                trade.direction = new_value
+
+            elif parameter == "market_condition":
+                while True:
+                    new_value = input("\nEnter new value: ").strip()
+
+                    if (
+                        new_value == "trending"
+                        or new_value == "counter-trending"
+                        or new_value == "trending(lower-tf)"
+                        or new_value == "counter-trending(lower-tf)"
+                        or new_value == "ranging"
+                        or new_value == "high-volume"
+                        or new_value == "low-volume"
+                    ):
+                            break
+
+                    choice = (input("\nPlease follow the guidelines"
+                        "\nIf you want to see the guidelines"
+                        " please choose 1 in main menu."
+                        "Do you want to continue? (Y/N): ")
+                        .strip().upper())
+                
+                    if choice == "Y":
+                        continue
+                    else:
+                        return False
+                
+                trade.market_condition = new_value
             
-        # dokonczyc -> juz wiesz co robic
-        pass
+            elif parameter == "rr":
+                new_value = input("\nEnter new value: ").strip()
+                trade.rr = float(new_value)
+
+            elif parameter == "result":
+                while True:
+                    new_value = input("\nEnter new value: ").strip()
+
+                    if (new_value == "W"
+                        or new_value == "L"
+                        or new_value == "BE"
+                    ):
+                        break
+
+                    choice = (input("\nPlease follow the guidelines"
+                        "\nIf you want to see the guidelines"
+                        " please choose 1 in main menu."
+                        "Do you want to continue? (Y/N): ")
+                        .strip().upper())
+                
+                    if choice == "Y":
+                        continue
+                    else:
+                        return False
+
+                trade.result = new_value
+
+            elif parameter == "entry":
+                new_value = input("\nEnter new value: ").strip()
+                trade.entry = float(new_value)
+
+            elif parameter == "exit":
+                new_value = input("\nEnter new value: ").strip()
+                trade.exit = float(new_value)
+
+            elif parameter == "notes":
+                new_value = input("\nEnter new value: ").strip()
+                if len(new_value) > 350:
+                    print("Notes can contain maximum 350 letters")
+                    return False
+                
+                trade.notes = new_value
+
+            else: 
+                print("Please enter correct parameter")
+                return  False
+        except ValueError:
+            print("Please enter correct value")
+            return False
+            
+        return True
+
     
     def save_to_json(self):
         path = Path("trades.json")
