@@ -10,12 +10,7 @@ if __name__ == "__main__":
 
 # TODO
 
-# Test the whole program manually
-# Test every user-input possibility
-# Test valid and invalid inputs
-# Check that invalid input does not let the program continue incorrectly
-# Check edge cases and unexpected inputs
-# Fix every bug found during testing
+
 
 
 # test.py with ACTUAL tests -> pytest

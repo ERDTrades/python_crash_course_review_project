@@ -56,17 +56,14 @@ def menu_loop():
         elif option == "3":
             journal.display_trades()
 
-        elif option == "4":
-             if (input("Do you want to search trade by id? (Y/N): ")
-                 .strip().upper() == "Y"):
-                  
-                  trade_id = int(input("Enter trade ID: "))
-                  trade = journal.id_find(trade_id)
+        elif option == "4":       
+          trade_id = int(input("Enter trade ID: "))
+          trade = journal.id_find(trade_id)
 
-                  if trade:
-                       print(trade)
-                  else:
-                       print("Trade not found.")
+          if trade:
+               print(trade)
+          else:
+               print("Trade not found.")
 
         elif option == "5":
              if (input("Do you want to delete trade? (Y/N): ")

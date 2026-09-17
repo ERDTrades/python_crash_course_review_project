@@ -4,7 +4,7 @@ from trade import Trade
 def create_trade():
     """function creating 1 trade"""
     while True:
-        try:
+        
                 while True:
                         was_valid_input = (input("\nTrade was valid? Y / N: ")
                         ).strip().upper()
@@ -13,10 +13,15 @@ def create_trade():
                         else:
                                print("Please follow the guidelines")
 
-                date_input = datetime.strptime(input("Date: (YYYY-MM-DD): "),
-                                                    "%Y-%m-%d"
-                                                    )
-                
+                while True:
+                     try:
+                            date_input = datetime.strptime(input("Date: (YYYY-MM-DD): "),
+                                                        "%Y-%m-%d"
+                                                        )
+                            break
+                     except ValueError:
+                            print("Please follow the Guidelines" \
+                            " (YYYY-MM-DD)")
                 while True:
                         session_input = input("Session: ").strip().upper()
                         if (
@@ -57,9 +62,14 @@ def create_trade():
                         else:
                                print("Please Follow the Guidelines")
 
-
-                rr_input = round(float(input("Risk/Reward: ")), 2)
-
+                while True:
+                     try:
+                            rr_input = round(float(input("Risk/Reward: ")), 2)
+                            break
+                     except ValueError:
+                            print("Please Follow the Guidelines" \
+                            "\nYou can only enter digits" \
+                            " separated by a dot. ")
                 while True:
                        result_input = input("Result: ").strip().upper()
                        if (result_input == "W"
@@ -69,8 +79,14 @@ def create_trade():
                               break
                        else:
                               print("Please Follow the Guidelines")
-                entry_input = round(float(input("Entry: ")), 2)
-                exit_input = round(float(input("Exit: ")), 2)
+
+                while True:
+                     try:
+                            entry_input = round(float(input("Entry: ")), 2)
+                            exit_input = round(float(input("Exit: ")), 2)
+                            break
+                     except ValueError:
+                            print("Please follow the Guidelines")
 
                 while True:
                      notes_input = input("Notes: ")
@@ -95,12 +111,10 @@ def create_trade():
                 notes=notes_input
                 )
                 return trade
-        except ValueError:
-                print("Invalid input - Please, follow the guidelines")
 
 def guide():
         # Guide Section 
-        print("\t----------------------------Users Guide:-------------"
+        print("\n----------------------------Users Guide:-------------"
         "----------------"
         "\npairs Example: ->  XAUUSD, EURUSD, NAS100, UK100"
         "\n-----------------------------------------------------------"
