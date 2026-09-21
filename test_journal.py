@@ -10,3 +10,18 @@ def test_id_find_invalid():
     journal = Journal()
 
     assert journal.id_find(999) is None
+
+def test_trade_count():
+    journal = Journal()
+
+    trade = journal.trade_count()
+
+    assert trade == f'There are 27 trades in your journal'
+
+def test_trade_count_invalid():
+
+    journal = Journal()
+
+    assert journal.trade_count() == 'There are 27 trades in your journal' == 999
+
+
