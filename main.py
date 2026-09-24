@@ -5,21 +5,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-# TODO
-
-
-
-
-# test.py with ACTUAL tests -> pytest
-
-# Add some more complicated statistics with Numpy + some more necessary visualizations
-# ( Less is more )
-
-# Custom chart colors??? (still not sure about that) + Dark/white theme?
-
-
-#...
-
