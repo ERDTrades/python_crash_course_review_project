@@ -4,11 +4,11 @@ PHASE 1 - FINISH CURRENT VERSION
 
 1. Finish current pytest tests
 
-Test every meaningful public function [ ]
+Test every meaningful public function [x]
 
-Test normal cases [ ]
+Test normal cases []
 
-Test edge cases [ ]
+Test edge cases []
 
 Test empty data [ ]
 

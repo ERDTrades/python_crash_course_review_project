@@ -129,6 +129,7 @@ class Statistics(): #later do this class using NumPy
         low_volume = []
         counter_trending_ltf = []
         counter_trending = []
+        
 
         for trade in self.trades:
             if trade.market_condition == "trending":
@@ -154,9 +155,9 @@ class Statistics(): #later do this class using NumPy
 
         trending_w = self.win_rate(trending)
         if trending_w is None:
-            print("Win rate on Trending: No trades")
+            print("Win rate on trending: No trades")
         else:
-            print(f"Win rate on Trending: {trending_w:.2f}%")
+            print(f"Win rate on trending: {trending_w:.2f}%")
 
         trending_ltf_w = self.win_rate(trending_lower_tf)
         if trending_ltf_w is None:
@@ -193,10 +194,21 @@ class Statistics(): #later do this class using NumPy
 
         counter_t_w = self.win_rate(counter_trending)
         if counter_t_w is None:
-            print("Win rate on counter trending is: No trades")
+            print("Win rate on counter trending: No trades")
         else:
-            print(f"Win rate on counter trending is: {counter_t_w:.2f}%")
+            print(f"Win rate on counter trending: {counter_t_w:.2f}%")
 
+# For future refactor -> change list to dict 
+# so replace print with return dict 
+#market_conditions = {
+#    "trending": [],
+#    "trending(lower-tf)": [],
+#    "ranging": [],
+#    "high-volume": [],
+#    "low-volume": [],
+#    "counter-trending(lower-tf)": [],
+#    "counter-trending": []
+#}
 
     def long_vs_short_wr(self):
         long = []

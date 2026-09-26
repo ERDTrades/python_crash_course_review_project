@@ -112,6 +112,9 @@ def create_trade():
                 )
                 return trade
 
+       # Add inputs:
+       # On AOI? Y/N
+
 def guide():
         # Guide Section 
         print("\n----------------------------Users Guide:-------------"
