@@ -2,27 +2,25 @@ PROJECT V2 - TODO / ROADMAP
 
 PHASE 1 - FINISH CURRENT VERSION
 
-1. Finish current pytest tests
+1. Finish current pytest tests + manual tests
 
 Test every meaningful public function [x]
 
 Test normal cases [x]
 
-Test edge cases []
+Test edge cases [x]
 
-Test empty data [ ]
+Test W / L / BE [X]
 
-Test W / L / BE [ ]
+Test invalid input [x]
 
-Test invalid input [ ]
+Test rounding [x]
 
-Test rounding [ ]
+Test statistics with known expected values [x]
 
-Test statistics with known expected values [ ]
+Remove meaningless "invalid" tests [x]
 
-Remove meaningless "invalid" tests [ ]
-
-Fix every bug found during testing [ ]
+Fix every bug found during testing [x]
 
 2. Add pytest fixtures
 
@@ -36,23 +34,23 @@ Use fixture for Journal tests where useful [ ]
 
 3. Manually test the whole application
 
-Test adding trades [ ]
+Test adding trades [x]
 
-Test editing trades [ ]
+Test editing trades [x]
 
-Test deleting trades [ ]
+Test deleting trades [x]
 
-Test searching by ID [ ]
+Test searching by ID [x]
 
-Test JSON saving/loading [ ]
+Test JSON saving/loading [x]
 
-Test every user-input possibility [ ]
+Test every user-input possibility [x]
 
-Test valid and invalid inputs [ ]
+Test valid and invalid inputs [x]
 
-Check edge cases and unexpected inputs [ ]
+Check edge cases and unexpected inputs [x]
 
-Fix every bug found during testing [ ]
+Fix every bug found during testing [x]
 
 PHASE 2 - DEFINE THE R MODEL
 
