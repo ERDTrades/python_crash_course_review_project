@@ -50,6 +50,8 @@ class Statistics(): #later do this class using NumPy
         return y
     
     def average_rr(self): 
+        if not self.trades:
+            return None
         rr_mean = [trade.rr for trade in self.trades]
         count_sum = sum(rr_mean)
         final = count_sum / len(rr_mean)
@@ -83,6 +85,8 @@ class Statistics(): #later do this class using NumPy
             print("Empty")
 
     def most_common_session(self):
+        if not self.trades:
+            return None
         london = []
         nyc = []
         asia = []
@@ -122,6 +126,8 @@ class Statistics(): #later do this class using NumPy
     def market_condition_wrs(self):
         """Basically defines on which market condition
         U have the biggest winratio"""
+        if not self.trades:
+            return None
         trending = []
         trending_lower_tf = []
         ranging = []
@@ -211,6 +217,9 @@ class Statistics(): #later do this class using NumPy
 #}
 
     def long_vs_short_wr(self):
+        if not self.trades:
+            return None
+        
         long = []
         short = []
         for trade in self.trades:
@@ -233,6 +242,9 @@ class Statistics(): #later do this class using NumPy
             print(f"Win rate on short positions: {short_wr:.2f}%")
 
     def win_rate_by_session(self):
+        if not self.trades:
+            return None
+
         london = []
         nyc = []
         asia = []
@@ -266,6 +278,9 @@ class Statistics(): #later do this class using NumPy
 
 
     def most_traded_pair(self):
+        if not self.trades:
+            return None        
+
         pairs = {}
         for trade in self.trades:
             if trade.pair in pairs:
@@ -284,6 +299,9 @@ class Statistics(): #later do this class using NumPy
         return most_traded
 
     def max_losing_streak(self):
+        if not self.trades:
+            return None
+
         l_streak = 0
         max_l_streak = 0 
         for trade in self.trades:
@@ -299,6 +317,9 @@ class Statistics(): #later do this class using NumPy
 
         return max_l_streak
     def max_winning_streak(self):
+        if not self.trades:
+            return None
+
         w_streak = 0
         max_w_streak = 0
         for trade in self.trades:

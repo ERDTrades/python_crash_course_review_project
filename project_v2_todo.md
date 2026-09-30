@@ -6,7 +6,7 @@ PHASE 1 - FINISH CURRENT VERSION
 
 Test every meaningful public function [x]
 
-Test normal cases []
+Test normal cases [x]
 
 Test edge cases []
 
