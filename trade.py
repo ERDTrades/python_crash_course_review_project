@@ -5,7 +5,7 @@ class Trade:
     def __init__(self, was_valid, date,
                 session, pair, direction, market_condition,
                 entry, exit, rr, 
-                result,
+                result, pnl,
                 notes
                 ):
         self.id = None
@@ -19,6 +19,7 @@ class Trade:
         self.exit = exit # float
         self.rr = rr # float
         self.result = result #string
+        self.pnl = pnl # float
         self.notes = notes # big string
 
 
@@ -34,6 +35,7 @@ class Trade:
                 f"\n---------------------------------------------------------"
                 f"\nRR: {self.rr}"
                 f"\nResult: {self.result}"
+                f"\nP&L: {self.pnl}"
                 f"\n---------------------------------------------------------"
                 f"\nEntry/exit info:"
                 f"\n\tEntry: {self.entry}"
@@ -54,6 +56,7 @@ class Trade:
             "market_condition": self.market_condition,
             "rr": self.rr,
             "result": self.result,
+            "pnl": self.pnl,
             "entry": self.entry,
             "exit": self.exit,
             "notes": self.notes 

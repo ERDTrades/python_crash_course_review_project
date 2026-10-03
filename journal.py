@@ -42,6 +42,7 @@ class Journal:
                           style="dark_blue")
         table.add_column("rr", justify="center", style="dark_blue")
         table.add_column("result", justify="center")
+        table.add_column("P&L", justify="center", style="dark_blue")
         table.add_column("entry", justify="center", style="dark_blue")
         table.add_column("exit", justify="center", style="dark_blue")
         table.add_column("notes", justify="center", style="dark_blue")
@@ -64,6 +65,7 @@ class Journal:
                 row.market_condition,
                 f"{row.rr:.2f}",
                 result,
+                f"{row.pnl:.2f}",
                 f"{row.entry:.2f}",
                 f"{row.exit:.2f}",
                 row.notes
@@ -313,6 +315,7 @@ class Journal:
                 trade["exit"],
                 trade["rr"],
                 trade["result"],
+                trade["pnl"],
                 trade["notes"]
             )
 

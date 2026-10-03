@@ -22,15 +22,7 @@ Remove meaningless "invalid" tests [x]
 
 Fix every bug found during testing [x]
 
-2. Add pytest fixtures
-
-Create shared Trade fixture [ ]
-
-Stop repeating the same Trade objects in every test [ ]
-
-Use fixture for Statistics tests [ ]
-
-Use fixture for Journal tests where useful [ ]
+2. Add pytest fixtures [x]
 
 3. Manually test the whole application
 
@@ -52,29 +44,15 @@ Check edge cases and unexpected inputs [x]
 
 Fix every bug found during testing [x]
 
-PHASE 2 - DEFINE THE R MODEL
+PHASE 2 - Add P&L
 
-IMPORTANT
+4. 
 
-Do NOT replace list[Trade] with DataFrame.
+add pnl parameter + refactor whole program for it [x]
 
-Keep Journal.trades as list[Trade].
+Add pnl Visualization in plotly []
 
-Keep JSON as persistent storage.
-
-DataFrame will only be used for analysis.
-
-4. Define actual trade result in R
-
-W  -> +RR
-L  -> -1R
-BE ->  0R
-
-Example:
-
-Trade 1: +1.55R
-Trade 2: -1R
-Total:   +0.55R
+Add pnl Visualization in matplotlib []
 
 5. Add R-result
 

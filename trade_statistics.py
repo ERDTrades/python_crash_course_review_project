@@ -335,6 +335,14 @@ class Statistics(): #later do this class using NumPy
 
         return max_w_streak
 
+    def pnl_count(self):
+        if not self.trades:
+            return None
+
+        p_and_l = [trade.pnl for trade in self.trades]
+
+        return sum(p_and_l)
+
     def show_statistics(self):
         console.print(f"\n\n\nAmount of trades: {len(self.trades)}\n",
                       style="dark_blue"
@@ -351,6 +359,11 @@ class Statistics(): #later do this class using NumPy
         table.add_row(
             "Win rate",
             f"{self.win_rate(self.trades):.2f}"
+        )
+
+        table.add_row(
+            "Total P&L",
+            f"{self.pnl_count():.2f}"
         )
 
         table.add_row(

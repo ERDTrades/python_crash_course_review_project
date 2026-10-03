@@ -67,8 +67,8 @@ def create_trade():
                             rr_input = round(float(input("Risk/Reward: ")), 2)
                             break
                      except ValueError:
-                            print("Please Follow the Guidelines" \
-                            "\nYou can only enter digits" \
+                            print("Please Follow the Guidelines"
+                            "\nYou can only enter digits"
                             " separated by a dot. ")
                 while True:
                        result_input = input("Result: ").strip().upper()
@@ -80,6 +80,15 @@ def create_trade():
                        else:
                               print("Please Follow the Guidelines")
 
+                while True:
+                       try:
+                            pnl_input = round(float(input("P&L: ").strip()))
+                            break
+                       except ValueError:
+                            print("Please Follow the Guidelines"
+                            "\nYou can only enter digits"
+                            " separated by a dot. ")
+                              
                 while True:
                      try:
                             entry_input = round(float(input("Entry: ")), 2)
@@ -106,6 +115,7 @@ def create_trade():
                 market_condition=market_condition_input,
                 rr=rr_input,
                 result=result_input,
+                pnl=pnl_input,
                 entry=entry_input,
                 exit=exit_input,
                 notes=notes_input
@@ -155,6 +165,10 @@ def guide():
         "----------"
         
         "\nresult -> W, L, BE"
+        "\n-----------------------------------------------------------"
+        "----------"
+
+        "\nP&L in USD $ - Separateb by dot -> 1.56"
         "\n-----------------------------------------------------------"
         "----------"
         
