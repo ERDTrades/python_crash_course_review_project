@@ -110,3 +110,44 @@ def wlbe_graph_plotly(journal):
     fig.show()
 
 
+# p&l curve how trades are going with amount of trades
+def pnl_amount_of_trades(journal):
+    x = []
+    y = stats.cumulative_pnl()
+
+    for trade in journal.trades:
+        x.append(trade.id)
+
+    labels = {
+        "x": "Trade id",
+        "y": "Cumulative pnl"
+    }
+
+    fig = px.line(
+        x=x,
+        y=y,
+        title="Cumulative p&l chart",
+        labels=labels
+    )
+
+    fig.update_layout(
+        font_color="#4447FF",
+        paper_bgcolor='black',
+        plot_bgcolor='black'
+    )
+
+    fig.update_yaxes(
+        gridcolor="#111257"
+    )
+
+    fig.update_xaxes(
+        gridcolor="#111257"
+    )
+
+    fig.show()
+
+def session_pnl():
+    pass
+
+# pnl with sessions so 3 lines 3 diff colors
+# and each one representing pnl + session

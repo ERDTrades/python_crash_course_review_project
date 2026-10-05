@@ -46,27 +46,18 @@ Fix every bug found during testing [x]
 
 PHASE 2 - Add P&L
 
-4. 
+4. add pnl parameter + refactor whole program for it [x]
 
-add pnl parameter + refactor whole program for it [x]
-
+5.
 Add pnl Visualization in plotly []
 
 Add pnl Visualization in matplotlib []
 
-5. Add R-result
+Add hovers to plotly and matplotlib for a trade descriptions etc []
 
-Add r_result to analysis/data preparation [ ]
+6. Add basic pnl statistics
 
-Do NOT necessarily store it in Trade/JSON [ ]
-
-Calculate it from result + RR [ ]
-
-6. Add basic R statistics
-
-Total R [ ]
-
-Average R [ ]
+Total pnl [ ]
 
 Best winning trade [ ]
 

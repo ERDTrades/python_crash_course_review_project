@@ -343,6 +343,17 @@ class Statistics(): #later do this class using NumPy
 
         return sum(p_and_l)
 
+    def cumulative_pnl(self):
+        """Function built for plotly"""
+        y = []
+
+        current_pnl = 0
+
+        for trade in self.trades:
+            current_pnl += trade.pnl
+            y.append(current_pnl)
+
+        return y
     def show_statistics(self):
         console.print(f"\n\n\nAmount of trades: {len(self.trades)}\n",
                       style="dark_blue"
