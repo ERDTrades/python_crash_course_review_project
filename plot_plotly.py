@@ -146,8 +146,57 @@ def pnl_amount_of_trades(journal):
 
     fig.show()
 
-def session_pnl():
-    pass
+def session_pnl(journal):
 
-# pnl with sessions so 3 lines 3 diff colors
-# and each one representing pnl + session
+    d = {"trade_id": [],
+     "session": [],
+     "cumulative_pnl": [],
+     }
+
+    london_current = 0
+    nyc_current = 0
+    asia_current = 0
+
+    for trade in journal.trades:
+        d["trade_id"].append(trade.id)
+        d["session"].append(trade.session)
+
+        if trade.session == "LONDON":
+            london_current += trade.pnl
+            d["cumulative_pnl"].append(london_current)
+
+        elif trade.session == "NYC":
+            nyc_current += trade.pnl
+            d["cumulative_pnl"].append(nyc_current)
+
+        elif trade.session == "ASIA":
+            asia_current += trade.pnl
+            d["cumulative_pnl"].append(asia_current)
+
+
+    df = pd.DataFrame(data=d)
+
+
+    fig = px.line(
+        df,
+        x="trade_id",
+        y="cumulative_pnl",
+        color="session"
+    )
+
+
+    fig.update_layout(
+    font_color="#4447FF",
+    paper_bgcolor='black',
+    plot_bgcolor='black'
+    )
+
+    fig.update_yaxes(
+        gridcolor="#111257"
+    )
+
+    fig.update_xaxes(
+        gridcolor="#111257"
+    )
+
+    fig.show()

@@ -344,7 +344,6 @@ class Statistics(): #later do this class using NumPy
         return sum(p_and_l)
 
     def cumulative_pnl(self):
-        """Function built for plotly"""
         y = []
 
         current_pnl = 0
@@ -352,6 +351,20 @@ class Statistics(): #later do this class using NumPy
         for trade in self.trades:
             current_pnl += trade.pnl
             y.append(current_pnl)
+
+        return y
+
+    def session_cumulative_pnl(self, session):
+        """Not used yet"""
+        # add to show_statistics maybe
+        y = []
+        current_pnl = 0
+
+        for trade in self.trades:
+            if trade.session == session:
+                current_pnl += trade.pnl
+                y.append(current_pnl)
+
 
         return y
     def show_statistics(self):

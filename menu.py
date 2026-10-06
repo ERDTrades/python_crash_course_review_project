@@ -4,7 +4,8 @@ from trade_input import guide
 from trade_statistics import Statistics
 
 from plot_matplotlib import cumulative_wr, wlbe_bar_chart, rr_graph
-from plot_plotly import cumulative_winrate_plotly, wlbe_graph_plotly, pnl_amount_of_trades
+from plot_plotly import cumulative_winrate_plotly, wlbe_graph_plotly
+from plot_plotly import pnl_amount_of_trades, session_pnl
 
 journal = Journal()
 
@@ -114,7 +115,8 @@ def menu_loop():
                     "\nCumulative winrate graph - input A "
                     "\nW/L/BE bar chart - input B "
                     "\nRR Graph - input C "
-                    "\nShow All - input D")
+                    "\ncumulative pnl sessions + trade amount - Input D"
+                    "\nShow All - input E")
 
             choice = input("Choice: ")
 
@@ -133,12 +135,17 @@ def menu_loop():
                  rr_graph(journal)
 
             elif choice.upper().strip() == "D":
+                 session_pnl(journal)
+                 pnl_amount_of_trades(journal)
+
+            elif choice.upper().strip() == "E":
                 cumulative_wr(journal)
                 cumulative_winrate_plotly(journal)
                 wlbe_bar_chart(journal)
                 wlbe_graph_plotly(journal)
                 rr_graph(journal)
                 pnl_amount_of_trades(journal)
+                session_pnl(journal)
                 
             else:
                  print("Please enter correct input")
