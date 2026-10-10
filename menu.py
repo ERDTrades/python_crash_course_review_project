@@ -5,7 +5,7 @@ from trade_statistics import Statistics
 
 from plot_matplotlib import cumulative_wr, wlbe_bar_chart, rr_graph
 from plot_plotly import cumulative_winrate_plotly, wlbe_graph_plotly
-from plot_plotly import pnl_amount_of_trades, session_pnl
+from plot_plotly import pnl_amount_of_trades, session_pnl, describe_chart
 
 journal = Journal()
 
@@ -146,6 +146,7 @@ def menu_loop():
                 rr_graph(journal)
                 pnl_amount_of_trades(journal)
                 session_pnl(journal)
+                describe_chart(journal)
                 
             else:
                  print("Please enter correct input")

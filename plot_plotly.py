@@ -181,9 +181,101 @@ def session_pnl(journal):
         df,
         x="trade_id",
         y="cumulative_pnl",
+        title="Session cumulative P&L",
         color="session"
     )
 
+    fig.update_traces(mode="markers+lines")
+
+    fig.update_layout(
+    font_color="#4447FF",
+    paper_bgcolor='black',
+    plot_bgcolor='black'
+    )
+
+    fig.update_yaxes(
+        gridcolor="#111257"
+    )
+
+    fig.update_xaxes(
+        gridcolor="#111257"
+    )
+
+    fig.show()
+
+
+# In-depth description chart
+
+def describe_chart(journal):
+    d = {"trade_id": [],
+         "was_valid": [],
+         "date": [],
+         "session": [],
+         "pair": [],
+         "direction": [],
+         "market_condition": [],
+         "pnl": [],
+         "cumulative_pnl": []
+     }
+
+    london_current = 0
+    nyc_current = 0
+    asia_current = 0
+
+    for trade in journal.trades:
+        d["trade_id"].append(trade.id)
+        d["was_valid"].append(trade.was_valid)
+        d["date"].append(trade.date)
+        d["session"].append(trade.session)
+        d["pair"].append(trade.pair)
+        d["direction"].append(trade.direction)
+        d["market_condition"].append(trade.market_condition)
+        d["pnl"].append(trade.pnl)
+
+        if trade.session == "LONDON":
+            london_current += trade.pnl
+            d["cumulative_pnl"].append(london_current)
+
+        elif trade.session == "NYC":
+            nyc_current += trade.pnl
+            d["cumulative_pnl"].append(nyc_current)
+
+        elif trade.session == "ASIA":
+            asia_current += trade.pnl
+            d["cumulative_pnl"].append(asia_current)
+
+    df = pd.DataFrame(data=d)
+
+    print(df)
+
+    fig = px.line(
+        df,
+        x="trade_id",
+        y="cumulative_pnl",
+        title="Cumulative P&L and description",
+        color="session",
+        custom_data=[
+            "was_valid",
+            "date",
+            "pnl",
+            "direction",
+            "pair",
+            "market_condition"
+        ]
+    )
+
+    fig.update_traces(mode="markers+lines", 
+                      hovertemplate=(
+                          "ID: %{x}<br>"
+                          "Valid: %{customdata[0]}<br>"
+                          "Date: %{customdata[1]}<br>"
+                          "P&L: %{customdata[2]}<br>"
+                          "Direction: %{customdata[3]}<br>"
+                          "Pair: %{customdata[4]}<br>"
+                          "Market condition: %{customdata[5]}"
+                          "<extra></extra>"
+                      )
+                    )
 
     fig.update_layout(
     font_color="#4447FF",

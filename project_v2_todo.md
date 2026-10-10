@@ -49,11 +49,11 @@ PHASE 2 - Add P&L
 4. add pnl parameter + refactor whole program for it [x]
 
 5.
-Add pnl Visualization in plotly []
+Add pnl Visualization in plotly [x]
 
-Add pnl Visualization in matplotlib []
+Add pnl Visualization in matplotlib [x]
 
-Add hovers to plotly and matplotlib for a trade descriptions etc []
+Add hovers to plotly for a trade descriptions etc []
 
 6. Add basic pnl statistics
 
